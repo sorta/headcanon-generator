@@ -9,6 +9,8 @@
         "indent": [
             "warn",
             2
-        ]
+        ],
+        "react/prefer-stateless-function": "off",
+        "react/jsx-filename-extension": "off"
     }
 }
