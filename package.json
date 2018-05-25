@@ -2,9 +2,12 @@
   "name": "headcanon-generator",
   "version": "0.1.0",
   "private": true,
+  "browserslist": [ "> 1%" ],
   "dependencies": {
+    "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
   },
   "scripts": {
@@ -12,5 +15,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.5.0",
+    "concurrently": "^3.5.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "postcss-cli": "^5.0.0",
+    "postcss-preset-env": "^5.1.0",
+    "stylelint": "^9.2.1",
+    "stylelint-config-standard": "^18.2.0"
   }
 }
