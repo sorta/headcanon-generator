@@ -17,8 +17,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "styles": "postcss ./src/styles/styles.pcss -o ./src/styles/dist/styles.css",
-    "styles:watch": "postcss ./src/styles/styles.pcss -o ./src/styles/dist/styles.css -w"
+    "styles": "postcss ./src/styles/styles.pcss -o ./src/styles/index.css",
+    "styles:watch": "postcss ./src/styles/styles.pcss -o ./src/styles/index.css -w",
+    "watch": "concurrently --names \"webpack, styles\" --prefix name \"npm run start\" \"npm run styles:watch\""
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",
