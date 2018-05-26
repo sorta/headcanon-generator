@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 class FandomList extends Component {
   static propTypes = {
     fandoms: PropTypes.object,
+    selectFandom: PropTypes.func,
   };
   static defaultProps = {
     fandoms: {},
+    selectFandom: () => {},
   };
 
   render() {
@@ -14,7 +16,8 @@ class FandomList extends Component {
       <ul className="FandomList">
         {Object.keys(this.props.fandoms).map(key => (
           <li key={key}>
-            {this.props.fandoms[key].name}
+            <span>{this.props.fandoms[key].name}</span>
+            <button onClick={() => this.props.selectFandom(key)}>E</button>
           </li>
         ))}
       </ul>

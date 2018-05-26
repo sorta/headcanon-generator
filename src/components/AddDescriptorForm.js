@@ -1,35 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class AddFandomForm extends Component {
+class AddDescriptorForm extends Component {
   static propTypes = {
-    addFandom: PropTypes.func,
+    addDescriptor: PropTypes.func,
   };
 
   static defaultProps = {
-    addFandom: () => {},
+    addDescriptor: () => {},
   };
 
   nameRef = React.createRef();
 
-  createFandom = (ev) => {
+  createDescriptor = (ev) => {
     ev.preventDefault();
-    const fandom = {
+    const descriptor = {
       name: this.nameRef.current.value,
-      subjects: {},
     };
-    this.props.addFandom(fandom);
+    this.props.addDescriptor(descriptor);
     ev.currentTarget.reset();
   }
 
   render() {
     return (
-      <form className="AddFandomForm" onSubmit={this.createFandom}>
+      <form className="AddDescriptorForm" onSubmit={this.createDescriptor}>
         <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
-        <button type="submit">+ Add Fandom</button>
+        <button type="submit">+ Add Descriptor</button>
       </form>
     );
   }
 }
 
-export default AddFandomForm;
+export default AddDescriptorForm;
