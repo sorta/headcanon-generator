@@ -9,7 +9,7 @@ import AddDescriptorForm from './AddDescriptorForm';
 import DescriptorList from './DescriptorList';
 import Subjects from './Subjects';
 
-const slugSetting = { lower: true };
+const slugSetting = { lower: true, remove: /[$.#\/\[\]]/g };
 
 class App extends Component {
   state = {
