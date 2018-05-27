@@ -15,7 +15,7 @@ class App extends Component {
   state = {
     fandoms: {},
     descriptors: {},
-    fandomIndex: '',
+    selectedFandomKey: '',
   };
 
   componentDidMount() {
@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   selectFandom = (key) => {
-    this.setState({ fandomIndex: key });
+    this.setState({ selectedFandomKey: key });
   }
 
   addDescriptor = (descriptor) => {
@@ -69,11 +69,15 @@ class App extends Component {
         <div className="fandoms">
           <h2 className="fandoms-header">Fandoms</h2>
           <AddFandomForm addFandom={this.addFandom} />
-          <FandomList fandoms={this.state.fandoms} selectFandom={this.selectFandom} />
+          <FandomList
+            fandoms={this.state.fandoms}
+            selectFandom={this.selectFandom}
+            selectedFandomKey={this.state.selectedFandomKey}
+          />
         </div>
         <Subjects
           fandoms={this.state.fandoms}
-          fandomIndex={this.state.fandomIndex}
+          selectedFandomKey={this.state.selectedFandomKey}
           addFandomSubject={this.addFandomSubject}
         />
         <div className="descriptors">

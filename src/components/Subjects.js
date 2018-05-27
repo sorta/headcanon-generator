@@ -7,23 +7,23 @@ import SubjectList from './SubjectList';
 class Subjects extends Component {
   static propTypes = {
     fandoms: PropTypes.object,
-    fandomIndex: PropTypes.string,
+    selectedFandomKey: PropTypes.string,
     addFandomSubject: PropTypes.func,
   };
   static defaultProps = {
     fandoms: {},
-    fandomIndex: '',
+    selectedFandomKey: '',
     addFandomSubject: () => {},
   };
 
   render() {
-    if (!{}.hasOwnProperty.call(this.props.fandoms, this.props.fandomIndex)) {
+    if (!{}.hasOwnProperty.call(this.props.fandoms, this.props.selectedFandomKey)) {
       return (
         <div className="Subjects" />
       );
     }
 
-    const currentFandom = this.props.fandoms[this.props.fandomIndex];
+    const currentFandom = this.props.fandoms[this.props.selectedFandomKey];
     const subjects = currentFandom.subjects || {};
 
     return (
@@ -31,7 +31,7 @@ class Subjects extends Component {
         <h3>{currentFandom.name}</h3>
         <AddSubjectForm
           addFandomSubject={this.props.addFandomSubject}
-          fandomIndex={this.props.fandomIndex}
+          selectedFandomKey={this.props.selectedFandomKey}
         />
         <SubjectList subjects={subjects} />
       </div>

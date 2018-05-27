@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import FandomListItem from './FandomListItem'
-
 class FandomList extends Component {
   static propTypes = {
     fandoms: PropTypes.object,
     selectFandom: PropTypes.func,
     selectedFandomKey: PropTypes.string,
+    index: PropTypes.string,
   };
   static defaultProps = {
     fandoms: {},
     selectFandom: () => {},
     selectedFandomKey: '',
+    index: '',
   };
 
   render() {
+    const isSelected = this.props.index === this.props.selectedFandomKey;
     return (
-      <ul className="FandomList">
-        {Object.keys(this.props.fandoms).map(key => (
-          <FandomListItem
-            key={key}
-            index={key}
-            fandoms={this.props.fandoms}
-            selectFandom={this.props.selectFandom}
-            selectedFandomKey={this.props.selectedFandomKey}
-          />
-        ))}
-      </ul>
+      <li key={this.props.index}>
+        <span>{this.props.fandoms[this.props.index].name}</span>
+        <button onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
+          {isSelected ? '<<' : '>>'}
+        </button>
+      </li>
     );
   }
 }
