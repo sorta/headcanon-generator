@@ -6,34 +6,33 @@ import SubjectList from './SubjectList';
 
 class Subjects extends Component {
   static propTypes = {
-    fandoms: PropTypes.object,
-    selectedFandomKey: PropTypes.string,
-    addFandomSubject: PropTypes.func,
+    fandom: PropTypes.object,
+    subjects: PropTypes.object,
+    addSubject: PropTypes.func,
   };
   static defaultProps = {
-    fandoms: {},
-    selectedFandomKey: '',
-    addFandomSubject: () => {},
+    fandom: {},
+    subjects: {},
+    addSubject: () => {},
   };
 
   render() {
-    if (!{}.hasOwnProperty.call(this.props.fandoms, this.props.selectedFandomKey)) {
-      return (
-        <div className="Subjects" />
-      );
+    const currentFandom = this.props.fandom;
+
+    if (typeof currentFandom === 'undefined' || typeof currentFandom.name === 'undefined') {
+      return <div className="Subjects" />;
     }
 
-    const currentFandom = this.props.fandoms[this.props.selectedFandomKey];
-    const subjects = currentFandom.subjects || {};
+    const subjectKeys = currentFandom.subjects || [];
 
     return (
       <div className="Subjects">
         <h3>{currentFandom.name}</h3>
         <AddSubjectForm
-          addFandomSubject={this.props.addFandomSubject}
+          addSubject={this.props.addSubject}
           selectedFandomKey={this.props.selectedFandomKey}
         />
-        <SubjectList subjects={subjects} />
+        <SubjectList subjects={this.props.subjects} subjectKeys={subjectKeys} />
       </div>
     );
   }

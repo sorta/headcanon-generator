@@ -15,8 +15,7 @@ class AddFandomForm extends Component {
   createFandom = (ev) => {
     ev.preventDefault();
     const fandom = {
-      name: this.nameRef.current.value,
-      subjects: {},
+      name: this.nameRef.current.value
     };
     this.props.addFandom(fandom);
     ev.currentTarget.reset();
@@ -25,7 +24,7 @@ class AddFandomForm extends Component {
   render() {
     return (
       <form className="AddFandomForm" onSubmit={this.createFandom}>
-        <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
+        <input name="name" ref={this.nameRef} type="text" placeholder="Name" required />
         <button type="submit">+ Add Fandom</button>
       </form>
     );

@@ -14,14 +14,28 @@ const slugSetting = { lower: true };
 class App extends Component {
   state = {
     fandoms: {},
+    subjects: {},
     descriptors: {},
     selectedFandomKey: '',
+    unavailableFandoms: {},
+    unavailableFandomSubjects: {},
+    unavailableDescriptors: {},
+    generatedSubject: {},
+    generatedDescriptor: {}
   };
 
+  // lifecycle functions
   componentDidMount() {
+    const sfkRef = localStorage.getItem('selectedFandomKey');
+    if (sfkRef) { this.setState({ selectedFandomKey: sfkRef }); }
+
     this.fandom_ref = base.syncState('fandoms', {
       context: this,
       state: 'fandoms',
+    });
+    this.subject_ref = base.syncState('subjects', {
+      context: this,
+      state: 'subjects',
     });
     this.descriptor_ref = base.syncState('descriptors', {
       context: this,
@@ -29,14 +43,20 @@ class App extends Component {
     });
   }
 
+  componentDidUpdate() {
+    localStorage.setItem('selectedFandomKey', this.state.selectedFandomKey);
+  }
+
   componentWillUnmount() {
     base.removeBinding(this.fandom_ref);
+    base.removeBinding(this.subject_ref);
     base.removeBinding(this.descriptor_ref);
   }
 
+  // fandom functions
   addFandom = (fandom) => {
     const fandoms = { ...this.state.fandoms };
-    fandoms[slugify(fandom.name, slugSetting)] = fandom;
+    fandoms[`f_${slugify(fandom.name, slugSetting)}_${Date.now()}`] = fandom;
     this.setState({ fandoms });
   }
 
@@ -46,22 +66,36 @@ class App extends Component {
     this.setState({ fandoms });
   }
 
-  addFandomSubject = (fkey, subject) => {
-    const fandoms = { ...this.state.fandoms };
-    fandoms[fkey].subjects = fandoms[fkey].subjects || {};
-    fandoms[fkey].subjects[slugify(subject.name, slugSetting)] = subject;
-    this.setState({ fandoms });
-  }
-
   selectFandom = (key) => {
     this.setState({ selectedFandomKey: key });
   }
 
+  // subject functions
+  addSubject = (fKey, subject) => {
+    const fandoms = { ...this.state.fandoms };
+    const subjects = { ...this.state.subjects };
+    const sKey = `s_${fKey.split('_')[1]}_${slugify(subject.name, slugSetting)}_${Date.now()}`;
+
+    // Create Subject state object
+    subjects[sKey] = subject;
+
+    // Add Subject key to fandom list of subjects
+    fandoms[fKey].subjects = fandoms[fKey].subjects || [];
+    fandoms[fKey].subjects.push(sKey);
+
+    this.setState({ fandoms, subjects });
+  }
+
+  // descriptor functions
   addDescriptor = (descriptor) => {
     const descriptors = { ...this.state.descriptors };
-    descriptors[slugify(descriptor.name, slugSetting)] = descriptor;
+    descriptors[`d_${slugify(descriptor.name, slugSetting)}_${Date.now()}`] = descriptor;
     this.setState({ descriptors });
   }
+
+  // generateHeadcanon = () => {
+  //   const availableSubjects = [];
+  // }
 
   render() {
     return (
@@ -76,9 +110,10 @@ class App extends Component {
           />
         </div>
         <Subjects
-          fandoms={this.state.fandoms}
+          fandom={this.state.fandoms[this.state.selectedFandomKey]}
+          subjects={this.state.subjects}
           selectedFandomKey={this.state.selectedFandomKey}
-          addFandomSubject={this.addFandomSubject}
+          addSubject={this.addSubject}
         />
         <div className="descriptors">
           <h2 className="descriptors-header">Descriptors</h2>

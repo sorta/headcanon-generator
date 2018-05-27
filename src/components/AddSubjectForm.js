@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class AddSubjectForm extends Component {
   static propTypes = {
-    addFandomSubject: PropTypes.func,
+    addSubject: PropTypes.func,
     selectedFandomKey: PropTypes.string,
   };
   static defaultProps = {
-    addFandomSubject: () => {},
+    addSubject: () => {},
     selectedFandomKey: '',
   };
 
@@ -18,7 +18,7 @@ class AddSubjectForm extends Component {
     const subject = {
       name: this.nameRef.current.value,
     };
-    this.props.addFandomSubject(this.props.selectedFandomKey, subject);
+    this.props.addSubject(this.props.selectedFandomKey, subject);
     ev.currentTarget.reset();
   }
 
