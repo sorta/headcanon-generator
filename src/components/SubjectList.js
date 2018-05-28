@@ -5,10 +5,12 @@ class SubjectList extends Component {
   static propTypes = {
     subjects: PropTypes.object,
     subjectKeys: PropTypes.array,
+    deleteSubject: PropTypes.func,
   };
   static defaultProps = {
     subjects: {},
     subjectKeys: [],
+    deleteSubject: () => {},
   };
 
   render() {
@@ -20,7 +22,17 @@ class SubjectList extends Component {
       <ul className="SubjectList">
         {this.props.subjectKeys.sort().map(key => {
           if ({}.hasOwnProperty.call(this.props.subjects, key)) {
-            return <li key={key}>{this.props.subjects[key].name}</li>;
+            return (
+              <li key={key} className="SubjectList-item">
+                <span className="SubjectList-item-text">{this.props.subjects[key].name}</span>
+                <button
+                  className="DescriptorList-item-delete"
+                  onClick={() => this.props.deleteSubject(key)}
+                >
+                  -
+                </button>
+              </li>
+            );
           } else {
             return null;
           }

@@ -25,7 +25,7 @@ class AddDescriptorForm extends Component {
     return (
       <form className="AddDescriptorForm" onSubmit={this.createDescriptor}>
         <input name="name" ref={this.nameRef} type="text" placeholder="Name" required />
-        <button type="submit">+ Add Descriptor</button>
+        <button type="submit">+</button>
       </form>
     );
   }

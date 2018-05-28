@@ -9,11 +9,13 @@ class Subjects extends Component {
     fandom: PropTypes.object,
     subjects: PropTypes.object,
     addSubject: PropTypes.func,
+    deleteSubject: PropTypes.func,
   };
   static defaultProps = {
     fandom: {},
     subjects: {},
     addSubject: () => {},
+    deleteSubject: () => {},
   };
 
   render() {
@@ -32,7 +34,11 @@ class Subjects extends Component {
           addSubject={this.props.addSubject}
           selectedFandomKey={this.props.selectedFandomKey}
         />
-        <SubjectList subjects={this.props.subjects} subjectKeys={subjectKeys} />
+        <SubjectList
+          subjects={this.props.subjects}
+          subjectKeys={subjectKeys}
+          deleteSubject={this.props.deleteSubject}
+        />
       </div>
     );
   }

@@ -17,6 +17,7 @@ class AddSubjectForm extends Component {
     ev.preventDefault();
     const subject = {
       name: this.nameRef.current.value,
+      fandomKey: this.props.selectedFandomKey,
     };
     this.props.addSubject(this.props.selectedFandomKey, subject);
     ev.currentTarget.reset();
@@ -26,7 +27,7 @@ class AddSubjectForm extends Component {
     return (
       <form className="AddSubjectForm" onSubmit={this.createSubject}>
         <input name="name" ref={this.nameRef} type="text" placeholder="Name" required />
-        <button type="submit">+ Add Subject</button>
+        <button type="submit">+</button>
       </form>
     );
   }
