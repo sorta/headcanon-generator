@@ -5,12 +5,14 @@ class FandomList extends Component {
   static propTypes = {
     fandoms: PropTypes.object,
     selectFandom: PropTypes.func,
+    deleteFandom: PropTypes.func,
     selectedFandomKey: PropTypes.string,
     index: PropTypes.string,
   };
   static defaultProps = {
     fandoms: {},
     selectFandom: () => {},
+    deleteFandom: () => {},
     selectedFandomKey: '',
     index: '',
   };
@@ -20,6 +22,7 @@ class FandomList extends Component {
     return (
       <li key={this.props.index}>
         <span>{this.props.fandoms[this.props.index].name}</span>
+        <button onClick={() => this.props.deleteFandom(this.props.index)}>-</button>
         <button onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
           {isSelected ? '<<' : '>>'}
         </button>

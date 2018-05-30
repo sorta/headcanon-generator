@@ -70,6 +70,22 @@ class App extends Component {
     this.setState({ fandoms });
   }
 
+  deleteFandom = (fKey) => {
+    const fandoms = { ...this.state.fandoms };
+    const subjects = { ...this.state.subjects };
+
+    // Remote any fandom subjects
+    fandoms[fKey].subjects = fandoms[fKey].subjects || [];
+    for (const sKey of fandoms[fKey].subjects) {
+      subjects[sKey] = null;
+    }
+
+    // Remove fandom itself
+    fandoms[fKey] = null;
+
+    this.setState({ fandoms, subjects });
+  }
+
   selectFandom = (key) => {
     this.setState({ selectedFandomKey: key });
   }
@@ -141,6 +157,7 @@ class App extends Component {
             <FandomList
               fandoms={this.state.fandoms}
               selectFandom={this.selectFandom}
+              deleteFandom={this.deleteFandom}
               selectedFandomKey={this.state.selectedFandomKey}
             />
           </div>
