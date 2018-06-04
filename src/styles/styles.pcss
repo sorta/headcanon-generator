@@ -1,3 +1,28 @@
 @import "./_*.pcss";
 
-body { color: #000; }
+:root {
+  --black: #180009;
+  --white: #e1e1e1;
+  --gap: 1rem;
+
+  color: var(--black);
+}
+
+* {
+  margin-top: 0;
+}
+
+.options {
+  display: grid;
+  grid-gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: 1fr;
+
+  & > * {
+    background: var(--black);
+    color: var(--white);
+    padding: var(--gap);
+  }
+}
+
+

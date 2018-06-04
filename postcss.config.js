@@ -6,7 +6,7 @@ module.exports = {
     require('postcss-easy-import')({ extensions: '.pcss' }),
     require('postcss-preset-env')({
       stage: 2,
-      features: ['custom-media-queries', 'nesting-rules'],
+      features: {'custom-media-queries': true, 'nesting-rules': true},
     }),
     require('autoprefixer')({ }),
     require('cssnano')({ preset: 'default' }),

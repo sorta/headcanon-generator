@@ -22,14 +22,14 @@ class Subjects extends Component {
     const currentFandom = this.props.fandom;
 
     if (typeof currentFandom === 'undefined' || typeof currentFandom.name === 'undefined') {
-      return <div className="Subjects" />;
+      return null;
     }
 
     const subjectKeys = currentFandom.subjects || [];
 
     return (
       <div className="Subjects">
-        <h3>{currentFandom.name}</h3>
+        <h2>{currentFandom.name}</h2>
         <AddSubjectForm
           addSubject={this.props.addSubject}
           selectedFandomKey={this.props.selectedFandomKey}
