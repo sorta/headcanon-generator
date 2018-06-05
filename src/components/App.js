@@ -177,7 +177,9 @@ class App extends Component {
             />
           </div>
         </div>
-        <div className="action"><button onClick={this.generateHeadcanon}>Go</button></div>
+        <div className="action">
+          <button class="btn btn-go" onClick={this.generateHeadcanon}>Go</button>
+        </div>
         <HeadCanon
           subject={this.state.subjects[this.state.generated.subject]}
           descriptor={this.state.descriptors[this.state.generated.descriptor]}

@@ -19,7 +19,7 @@ class SubjectList extends Component {
     }
 
     return (
-      <ul className="SubjectList">
+      <ul className="options-list SubjectList">
         {this.props.subjectKeys.sort().map(key => {
           if ({}.hasOwnProperty.call(this.props.subjects, key)) {
             return (

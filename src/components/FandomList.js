@@ -19,7 +19,7 @@ class FandomList extends Component {
 
   render() {
     return (
-      <ul className="FandomList">
+      <ul className="options-list FandomList">
         {Object.keys(this.props.fandoms).map(key => (
           <FandomListItem
             key={key}

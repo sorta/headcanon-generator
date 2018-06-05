@@ -1,15 +1,46 @@
 @import "./_*.pcss";
 
 :root {
-  --black: #180009;
-  --white: #e1e1e1;
+  --black: #180029;
+  --white: #fafafa;
   --gap: 1rem;
 
   color: var(--black);
+  background: var(--white);
+  min-height: 100%;
+  display: grid;
 }
 
 * {
   margin-top: 0;
+}
+
+#root {
+  display: grid;
+  min-height: 100%;
+}
+
+.App {
+  display: grid;
+  grid-gap: var(--gap);
+  align-content: center;
+}
+
+button,
+.btn {
+  background: var(--black);
+  border: 1px solid var(--white);
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  transition: 0.25s;
+
+  &:hover {
+    background: var(--white);
+    border-color: var(--black);
+    color: var(--black);
+  }
 }
 
 .options {
@@ -23,6 +54,20 @@
     color: var(--white);
     padding: var(--gap);
   }
+}
+
+.options-list {
+  list-style-type: none;
+  padding: 0;
+  outline: none;
+}
+
+.action {
+  justify-self: center;
+}
+
+.HeadCanon {
+  justify-self: center;
 }
 
 

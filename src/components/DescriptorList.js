@@ -13,7 +13,7 @@ class DescriptorList extends Component {
 
   render() {
     return (
-      <ul className="DescriptorList">
+      <ul className="options-list DescriptorList">
         {Object.keys(this.props.descriptors).map(key => (
           <li key={key} className="DescriptorList-item">
             <span className="DescriptorList-item-text">{this.props.descriptors[key].name}</span>
