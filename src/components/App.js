@@ -178,7 +178,7 @@ class App extends Component {
           </div>
         </div>
         <div className="action">
-          <button class="btn btn-go" onClick={this.generateHeadcanon}>Go</button>
+          <button className="btn btn-go" onClick={this.generateHeadcanon}>Go</button>
         </div>
         <HeadCanon
           subject={this.state.subjects[this.state.generated.subject]}
