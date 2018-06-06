@@ -107,7 +107,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## Getting Started
 
-Clone this repository and run `npm install`. Then run `npm run styles` to build the main css file and sourcemap. And finally, as this project relies on [firebase](https://firebase.google.com/), set up the following environment variables:
+Clone this repository and run `npm install`. And then, as this project relies on [firebase](https://firebase.google.com/), set up the following environment variables:
 
 ```
 REACT_APP_DB_API_KEY
