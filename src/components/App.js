@@ -127,9 +127,15 @@ class App extends Component {
     this.setState({ descriptors });
   }
 
-  deleteDescriptor = (key) => {
+  updateDescriptor = (dKey, descriptor) => {
     const descriptors = { ...this.state.descriptors };
-    descriptors[key] = null;
+    descriptors[dKey] = descriptor;
+    this.setState({ descriptors });
+  }
+
+  deleteDescriptor = (dKey) => {
+    const descriptors = { ...this.state.descriptors };
+    descriptors[dKey] = null;
     this.setState({ descriptors });
   }
 
@@ -173,6 +179,7 @@ class App extends Component {
             <AddDescriptorForm addDescriptor={this.addDescriptor} />
             <DescriptorList
               descriptors={this.state.descriptors}
+              updateDescriptor={this.updateDescriptor}
               deleteDescriptor={this.deleteDescriptor}
             />
           </div>

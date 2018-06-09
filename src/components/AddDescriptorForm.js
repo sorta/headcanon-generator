@@ -23,7 +23,7 @@ class AddDescriptorForm extends Component {
 
   render() {
     return (
-      <form className="AddDescriptorForm" onSubmit={this.createDescriptor}>
+      <form className="AddDescriptorForm form-add" onSubmit={this.createDescriptor}>
         <input name="name" ref={this.nameRef} type="text" placeholder="Name" required />
         <button type="submit">+</button>
       </form>

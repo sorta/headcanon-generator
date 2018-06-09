@@ -1,9 +1,13 @@
 @import "./_*.pcss";
 
+/* Base */
+
 :root {
   --black: #180029;
   --white: #fafafa;
   --gap: 1rem;
+  --gap-half: 0.5rem;
+  --gap-quarter: 0.25rem;
 
   color: var(--black);
   background: var(--white);
@@ -13,17 +17,6 @@
 
 * {
   margin-top: 0;
-}
-
-#root {
-  display: grid;
-  min-height: 100%;
-}
-
-.App {
-  display: grid;
-  grid-gap: var(--gap);
-  align-content: center;
 }
 
 button,
@@ -41,6 +34,19 @@ button,
     border-color: var(--black);
     color: var(--black);
   }
+}
+
+/* Layout */
+
+#root {
+  display: grid;
+  min-height: 100%;
+}
+
+.App {
+  display: grid;
+  grid-gap: var(--gap);
+  align-content: center;
 }
 
 .options {
@@ -66,8 +72,16 @@ button,
   justify-self: center;
 }
 
+/* Components */
+
 .HeadCanon {
   justify-self: center;
 }
 
+.form-add {
+  margin-bottom: var(--gap);
+}
 
+.list-item-edit {
+  margin-bottom: var(--gap-quarter);
+}
