@@ -24,7 +24,7 @@ class AddFandomForm extends Component {
   render() {
     return (
       <form className="AddFandomForm form-add" onSubmit={this.createFandom}>
-        <input name="name" ref={this.nameRef} type="text" placeholder="Name" required />
+        <input name="name" ref={this.nameRef} type="text" placeholder="New Fandom Name" required />
         <button type="submit">+</button>
       </form>
     );

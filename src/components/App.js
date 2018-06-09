@@ -64,9 +64,9 @@ class App extends Component {
     this.setState({ fandoms });
   }
 
-  updateFandom = (key, updatedFandom) => {
+  updateFandom = (fKey, fandom) => {
     const fandoms = { ...this.state.fandoms };
-    fandoms[key] = updatedFandom;
+    fandoms[fKey] = fandom;
     this.setState({ fandoms });
   }
 
@@ -86,8 +86,8 @@ class App extends Component {
     this.setState({ fandoms, subjects });
   }
 
-  selectFandom = (key) => {
-    this.setState({ selectedFandomKey: key });
+  selectFandom = (fKey) => {
+    this.setState({ selectedFandomKey: fKey });
   }
 
   // subject functions
@@ -169,6 +169,7 @@ class App extends Component {
             <FandomList
               fandoms={this.state.fandoms}
               selectFandom={this.selectFandom}
+              updateFandom={this.updateFandom}
               deleteFandom={this.deleteFandom}
               selectedFandomKey={this.state.selectedFandomKey}
             />

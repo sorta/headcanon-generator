@@ -26,7 +26,7 @@ class AddSubjectForm extends Component {
   render() {
     return (
       <form className="AddSubjectForm form-add" onSubmit={this.createSubject}>
-        <input name="name" ref={this.nameRef} type="text" placeholder="Name" required />
+        <input name="name" ref={this.nameRef} type="text" placeholder="New Subject Name" required />
         <button type="submit">+</button>
       </form>
     );
