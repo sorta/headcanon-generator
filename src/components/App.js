@@ -106,6 +106,12 @@ class App extends Component {
     this.setState({ fandoms, subjects });
   }
 
+  updateSubject = (sKey, subject) => {
+    const subjects = { ...this.state.subjects };
+    subjects[sKey] = subject;
+    this.setState({ subjects });
+  }
+
   deleteSubject = (sKey) => {
     const fandoms = { ...this.state.fandoms };
     const subjects = { ...this.state.subjects };
@@ -172,6 +178,7 @@ class App extends Component {
             subjects={this.state.subjects}
             selectedFandomKey={this.state.selectedFandomKey}
             addSubject={this.addSubject}
+            updateSubject={this.updateSubject}
             deleteSubject={this.deleteSubject}
           />
           <div className="descriptors">
