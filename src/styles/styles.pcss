@@ -76,6 +76,10 @@ button,
 
 .HeadCanon {
   justify-self: center;
+
+  & .HeadCanon-item {
+    display: inline-block;
+  }
 }
 
 .form-add {
@@ -84,4 +88,12 @@ button,
 
 .list-item {
   margin-bottom: var(--gap-quarter);
+}
+
+.control-row {
+  display: flex;
+
+  & input[type="text"] {
+    flex: 1;
+  }
 }

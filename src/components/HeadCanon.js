@@ -18,11 +18,11 @@ class HeadCanon extends Component {
 
     return (
       <div className="HeadCanon">
-        <h2>
-          <span className="HeadCanon-Subject">{this.props.subject.name}</span>
-          <span className="HeadCanon-Verb"> is </span>
-          <span className="HeadCanon-Descriptor">{this.props.descriptor.name}</span>
-        </h2>
+        <h2 className="HeadCanon-item HeadCanon-Subject">{this.props.subject.name}</h2>
+        &nbsp;
+        <h2 className="HeadCanon-item HeadCanon-Verb">is</h2>
+        &nbsp;
+        <h2 className="HeadCanon-item HeadCanon-Descriptor">{this.props.descriptor.name}</h2>
       </div>
     );
   }

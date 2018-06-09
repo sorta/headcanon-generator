@@ -26,7 +26,7 @@ class SubjectList extends Component {
 
   render() {
     return (
-      <li key={this.props.index} className="SubjectListItem list-item">
+      <li key={this.props.index} className="SubjectListItem list-item control-row">
         <input name="name" type="text" placeholder="Subject Name"
           value={this.props.subject.name} onChange={this.handleChange}
         />

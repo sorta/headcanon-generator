@@ -26,7 +26,7 @@ class Descriptor extends Component {
 
   render() {
     return (
-      <li key={this.props.index} className="DescriptorListItem list-item">
+      <li key={this.props.index} className="DescriptorListItem list-item control-row">
         <input name="name" type="text" placeholder="Descriptor Name"
           value={this.props.descriptor.name} onChange={this.handleChange}
         />

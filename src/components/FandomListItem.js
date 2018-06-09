@@ -31,7 +31,7 @@ class FandomList extends Component {
   render() {
     const isSelected = this.props.index === this.props.selectedFandomKey;
     return (
-      <li key={this.props.index} className="FandomListItem list-item">
+      <li key={this.props.index} className="FandomListItem list-item control-row">
         {/* <span>{this.props.fandom.name}</span> */}
         <input name="name" type="text" placeholder="Fandom Name"
           value={this.props.fandom.name} onChange={this.handleChange}
