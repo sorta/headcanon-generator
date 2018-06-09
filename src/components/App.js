@@ -160,9 +160,12 @@ class App extends Component {
   }
 
   render() {
+    const selectedFandom = this.state.fandoms[this.state.selectedFandomKey];
+    const options3 = typeof selectedFandom === 'undefined' || typeof selectedFandom.name === 'undefined';
+
     return (
       <div className="App">
-        <div className="options">
+        <div className={options3 ? 'options' : 'options has-selected-fandom'}>
           <div className="fandoms">
             <h2 className="fandoms-header">Fandoms</h2>
             <AddFandomForm addFandom={this.addFandom} />
@@ -175,7 +178,7 @@ class App extends Component {
             />
           </div>
           <Subjects
-            fandom={this.state.fandoms[this.state.selectedFandomKey]}
+            fandom={selectedFandom}
             subjects={this.state.subjects}
             selectedFandomKey={this.state.selectedFandomKey}
             addSubject={this.addSubject}
@@ -196,6 +199,7 @@ class App extends Component {
           <button className="btn btn-go" onClick={this.generateHeadcanon}>Go</button>
         </div>
         <HeadCanon
+          fandoms={this.state.fandoms}
           subject={this.state.subjects[this.state.generated.subject]}
           descriptor={this.state.descriptors[this.state.generated.descriptor]}
         />

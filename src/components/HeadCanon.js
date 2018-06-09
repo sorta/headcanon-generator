@@ -5,10 +5,12 @@ class HeadCanon extends Component {
   static propTypes = {
     subject: PropTypes.object,
     descriptor: PropTypes.object,
+    fandoms: PropTypes.object,
   };
   static defaultProps = {
     subject: {},
     descriptor: {},
+    fandoms: {},
   };
 
   render() {
@@ -16,9 +18,21 @@ class HeadCanon extends Component {
       return null;
     }
 
+    let subjectSection = (
+      <h2 className="HeadCanon-item HeadCanon-Subject">{this.props.subject.name}</h2>
+    );
+
+    if ({}.hasOwnProperty.call(this.props.fandoms, this.props.subject.fandomKey)) {
+      subjectSection = (
+        <h2 className="HeadCanon-item HeadCanon-Subject"
+          data-tooltip={`From "${this.props.fandoms[this.props.subject.fandomKey].name}"`}
+        >{this.props.subject.name}</h2>
+      );
+    }
+
     return (
       <div className="HeadCanon">
-        <h2 className="HeadCanon-item HeadCanon-Subject">{this.props.subject.name}</h2>
+        {subjectSection}
         &nbsp;
         <h2 className="HeadCanon-item HeadCanon-Verb">is</h2>
         &nbsp;

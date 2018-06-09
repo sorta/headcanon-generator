@@ -2,6 +2,22 @@
 
 /* Base */
 
+@custom-media --view-xs (width < 600px);
+
+@custom-media --view-sm (600px <= width < 900px);
+@custom-media --view-sm-up (width >= 600px);
+@custom-media --view-sm-dn (width < 900px);
+
+@custom-media --view-md (900px <= width < 1200px);
+@custom-media --view-md-up (width >= 900px);
+@custom-media --view-md-dn (width < 1200px);
+
+@custom-media --view-lg (1200px <= width < 1800px);
+@custom-media --view-lg-up (width >= 1200px);
+@custom-media --view-lg-dn (width < 1800px);
+
+@custom-media --view-xl (width >= 1800px;
+
 :root {
   --black: #180029;
   --white: #fafafa;
@@ -52,13 +68,44 @@ button,
 .options {
   display: grid;
   grid-gap: var(--gap);
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-template-rows: 1fr;
+  grid-template-areas: "fandoms" "descriptors";
+
+  &.has-selected-fandom {
+    grid-template-areas: "fandoms" "subjects" "descriptors";
+  }
+
+  @media (--view-sm) {
+    grid-template-areas: "fandoms descriptors";
+
+    &.has-selected-fandom {
+      grid-template-areas: "fandoms descriptors" "subjects descriptors";
+    }
+  }
+
+  @media (--view-md-up) {
+    grid-template-areas: "fandoms descriptors";
+
+    &.has-selected-fandom {
+      grid-template-areas: "fandoms subjects descriptors";
+    }
+  }
 
   & > * {
     background: var(--black);
     color: var(--white);
     padding: var(--gap);
+  }
+
+  & .fandoms {
+    grid-area: fandoms;
+  }
+
+  & .descriptors {
+    grid-area: descriptors;
+  }
+
+  & .Subjects {
+    grid-area: subjects;
   }
 }
 
@@ -95,5 +142,36 @@ button,
 
   & input[type="text"] {
     flex: 1;
+  }
+}
+
+[data-tooltip] {
+  position: relative;
+  text-decoration: underline dashed;
+  cursor: help;
+
+  &:after {
+    content: attr(data-tooltip);
+    display: block;
+
+    font-size: 0.9rem;
+    font-weight: 400;
+    white-space: nowrap;
+    border: 1px solid;
+    padding: var(--gap-quarter);
+
+    position: absolute;
+    top: 110%;
+    left: 25%;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0s 0.25s;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s;
   }
 }
