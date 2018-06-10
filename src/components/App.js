@@ -12,7 +12,7 @@ import DescriptorList from './DescriptorList';
 import Subjects from './Subjects';
 import HeadCanon from './HeadCanon';
 
-import sprite from '../images/sprite.svg';
+import Logo from './Logo';
 
 const slugSetting = { lower: true, remove: /[$.#/[\]]/g };
 
@@ -167,6 +167,7 @@ class App extends Component {
 
     return (
       <div className="App">
+      {/*<Logo />*/}
         <div className={options3 ? 'options' : 'options has-selected-fandom'}>
           <div className="fandoms">
             <h2 className="fandoms-header">Fandoms</h2>
@@ -199,9 +200,10 @@ class App extends Component {
         </div>
         <div className="action">
           <button className="btn btn-go" title="Generate Headcanon" onClick={this.generateHeadcanon}>
-            <svg className="btn-go-logo" role="img">
-              <use xlinkHref={`${sprite}#logo`} />
-            </svg>
+            {/*<svg className="btn-go-logo" role="img">
+              <use xlinkHref={`#logo`} />
+            </svg>*/}
+            <Logo className="btn-go-logo" />
           </button>
         </div>
         <HeadCanon

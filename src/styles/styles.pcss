@@ -25,9 +25,6 @@
   --gap-half: 0.5rem;
   --gap-quarter: 0.25rem;
 
-  --logo-primary-color: var(--black);
-  --logo-secondary-color: var(--white);
-
   color: var(--black);
   background: var(--white);
   min-height: 100%;
@@ -185,11 +182,21 @@ button,
 
   & .btn-go-logo {
     width: 100px;
-    height: 106px;
-
-    /*&:hover {
-      --logo-primary-color: var(--white);
-      --logo-secondary-color: var(--black);
-    }*/
+    max-height: 106px;
   }
+}
+
+.logo-dark-fill,
+.logo-lite-fill,
+.logo-dark-stroke,
+.logo-lite-stroke {
+  transition: all 0.5s;
+}
+
+.btn-go:hover .logo-dark-fill {
+  fill: var(--white);
+}
+
+.btn-go:hover .logo-lite-fill {
+  fill: var(--black);
 }
