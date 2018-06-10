@@ -12,6 +12,8 @@ import DescriptorList from './DescriptorList';
 import Subjects from './Subjects';
 import HeadCanon from './HeadCanon';
 
+import sprite from '../images/sprite.svg';
+
 const slugSetting = { lower: true, remove: /[$.#/[\]]/g };
 
 class App extends Component {
@@ -196,7 +198,11 @@ class App extends Component {
           </div>
         </div>
         <div className="action">
-          <button className="btn btn-go" onClick={this.generateHeadcanon}>Go</button>
+          <button className="btn btn-go" title="Generate Headcanon" onClick={this.generateHeadcanon}>
+            <svg className="btn-go-logo" role="img">
+              <use xlinkHref={`${sprite}#logo`} />
+            </svg>
+          </button>
         </div>
         <HeadCanon
           fandoms={this.state.fandoms}

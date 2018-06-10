@@ -25,6 +25,9 @@
   --gap-half: 0.5rem;
   --gap-quarter: 0.25rem;
 
+  --logo-primary-color: var(--black);
+  --logo-secondary-color: var(--white);
+
   color: var(--black);
   background: var(--white);
   min-height: 100%;
@@ -173,5 +176,20 @@ button,
     opacity: 1;
     visibility: visible;
     transition: opacity 0.25s;
+  }
+}
+
+.btn-go {
+  border: none;
+  background: transparent;
+
+  & .btn-go-logo {
+    width: 100px;
+    height: 106px;
+
+    /*&:hover {
+      --logo-primary-color: var(--white);
+      --logo-secondary-color: var(--black);
+    }*/
   }
 }
