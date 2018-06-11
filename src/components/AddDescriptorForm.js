@@ -30,7 +30,9 @@ class AddDescriptorForm extends Component {
 
     return (
       <form className="AddDescriptorForm form-add control-row" onSubmit={this.createDescriptor}>
-        <input name="name" ref={this.nameRef} type="text" placeholder="New Descriptor Name" required />
+        <input name="name" ref={this.nameRef} type="text" placeholder="New Descriptor Name"
+          required className="control-stretch"
+        />
         <button type="submit">+</button>
       </form>
     );

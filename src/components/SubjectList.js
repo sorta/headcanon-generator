@@ -9,12 +9,14 @@ class SubjectList extends Component {
     subjectKeys: PropTypes.array,
     updateSubject: PropTypes.func,
     deleteSubject: PropTypes.func,
+    isManaging: PropTypes.func,
   };
   static defaultProps = {
     subjects: {},
     subjectKeys: [],
     updateSubject: () => {},
     deleteSubject: () => {},
+    isManaging: () => false,
   };
 
   render() {
@@ -33,6 +35,7 @@ class SubjectList extends Component {
                 subject={this.props.subjects[key]}
                 updateSubject={this.props.updateSubject}
                 deleteSubject={this.props.deleteSubject}
+                isManaging={this.props.isManaging}
               />
             );
           } else {

@@ -25,12 +25,19 @@ class SubjectList extends Component {
   };
 
   render() {
+    if (!this.props.isManaging()) {
+      return (
+        <li key={this.props.index} className="SubjectListItem list-item control-row">
+          <span className="SubjectList-item-text">{this.props.subject.name}</span>
+        </li>
+      );
+    }
+
     return (
       <li key={this.props.index} className="SubjectListItem list-item control-row">
-        <input name="name" type="text" placeholder="Subject Name"
+        <input name="name" type="text" placeholder="Subject Name" className="control-stretch"
           value={this.props.subject.name} onChange={this.handleChange}
         />
-        {/* <span className="SubjectList-item-text">{this.props.subject.name}</span> */}
         <button
           className="DescriptorList-item-delete"
           onClick={() => this.props.deleteSubject(this.props.index)}

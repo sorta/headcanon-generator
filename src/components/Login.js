@@ -4,13 +4,13 @@ class Login extends Component {
   render() {
     let headerText = 'Login';
     let actions = (
-      <button className="github" onClick={() => this.props.authenticate('Github')}>Log In With Github</button>
+      <button className="btn-login github" onClick={() => this.props.authenticate('Github')}>Log In With Github</button>
     );
 
     if (this.props.uid) {
       headerText = 'You are logged in';
       actions = (
-        <button onClick={this.props.logout}>Log Out</button>
+        <button className="btn-logout" onClick={this.props.logout}>Log Out</button>
       );
     }
 

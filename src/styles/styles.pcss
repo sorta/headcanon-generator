@@ -145,7 +145,7 @@ button,
 .control-row {
   display: flex;
 
-  & input[type="text"] {
+  & .control-stretch {
     flex: 1;
   }
 }
@@ -189,6 +189,12 @@ button,
     width: 100px;
     max-height: 106px;
   }
+}
+
+.btn-login,
+.btn-logout {
+  border-radius: var(--gap-half);
+  padding: var(--gap-half);
 }
 
 .logo-dark-fill,

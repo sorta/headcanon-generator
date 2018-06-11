@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 class AddSubjectForm extends Component {
   static propTypes = {
     addSubject: PropTypes.func,
+    isManaging: PropTypes.func,
     selectedFandomKey: PropTypes.string,
   };
   static defaultProps = {
     addSubject: () => {},
+    isManaging: () => false,
     selectedFandomKey: '',
   };
 
@@ -24,9 +26,15 @@ class AddSubjectForm extends Component {
   }
 
   render() {
+    if (!this.props.isManaging()) {
+      return null;
+    }
+
     return (
       <form className="AddSubjectForm form-add control-row" onSubmit={this.createSubject}>
-        <input name="name" ref={this.nameRef} type="text" placeholder="New Subject Name" required />
+        <input name="name" ref={this.nameRef} type="text" placeholder="New Subject Name"
+          required className="control-stretch"
+        />
         <button type="submit">+</button>
       </form>
     );

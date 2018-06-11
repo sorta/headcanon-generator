@@ -11,6 +11,7 @@ class Subjects extends Component {
     addSubject: PropTypes.func,
     updateSubject: PropTypes.func,
     deleteSubject: PropTypes.func,
+    isManaging: PropTypes.func,
   };
   static defaultProps = {
     fandom: {},
@@ -18,6 +19,7 @@ class Subjects extends Component {
     addSubject: () => {},
     updateSubject: () => {},
     deleteSubject: () => {},
+    isManaging: () => false,
   };
 
   render() {
@@ -35,12 +37,14 @@ class Subjects extends Component {
         <AddSubjectForm
           addSubject={this.props.addSubject}
           selectedFandomKey={this.props.selectedFandomKey}
+          isManaging={this.props.isManaging}
         />
         <SubjectList
           subjects={this.props.subjects}
           subjectKeys={subjectKeys}
           updateSubject={this.props.updateSubject}
           deleteSubject={this.props.deleteSubject}
+          isManaging={this.props.isManaging}
         />
       </div>
     );

@@ -39,7 +39,7 @@ class Descriptor extends Component {
 
     return (
       <li key={this.props.index} className="DescriptorListItem list-item control-row">
-        <input name="name" type="text" placeholder="Descriptor Name"
+        <input name="name" type="text" placeholder="Descriptor Name" className="control-stretch"
           value={this.props.descriptor.name} onChange={this.handleChange}
         />
         <button

@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 class AddFandomForm extends Component {
   static propTypes = {
     addFandom: PropTypes.func,
+    isManaging: PropTypes.func,
   };
 
   static defaultProps = {
     addFandom: () => {},
+    isManaging: () => false,
   };
 
   nameRef = React.createRef();
@@ -22,9 +24,15 @@ class AddFandomForm extends Component {
   }
 
   render() {
+    if (!this.props.isManaging()) {
+      return null;
+    }
+
     return (
       <form className="AddFandomForm form-add control-row" onSubmit={this.createFandom}>
-        <input name="name" ref={this.nameRef} type="text" placeholder="New Fandom Name" required />
+        <input name="name" ref={this.nameRef} type="text" placeholder="New Fandom Name"
+          required className="control-stretch"
+        />
         <button type="submit">+</button>
       </form>
     );

@@ -9,6 +9,7 @@ class FandomList extends Component {
     selectFandom: PropTypes.func,
     updateFandom: PropTypes.func,
     deleteFandom: PropTypes.func,
+    isManaging: PropTypes.func,
     selectedFandomKey: PropTypes.string,
   };
   static defaultProps = {
@@ -16,6 +17,7 @@ class FandomList extends Component {
     selectFandom: () => {},
     updateFandom: () => {},
     deleteFandom: () => {},
+    isManaging: () => false,
     selectedFandomKey: '',
   };
 
@@ -38,6 +40,7 @@ class FandomList extends Component {
             selectFandom={this.props.selectFandom}
             updateFandom={this.props.updateFandom}
             deleteFandom={this.props.deleteFandom}
+            isManaging={this.props.isManaging}
             selectedFandomKey={this.props.selectedFandomKey}
           />
         })}

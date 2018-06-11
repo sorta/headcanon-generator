@@ -27,6 +27,7 @@ class DescriptorList extends Component {
             descriptor={this.props.descriptors[key]}
             updateDescriptor={this.props.updateDescriptor}
             deleteDescriptor={this.props.deleteDescriptor}
+            isManaging={this.props.isManaging}
           />
         ))}
       </ul>

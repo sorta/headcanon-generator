@@ -168,13 +168,14 @@ class App extends Component {
         <div className={options3 ? 'options' : 'options has-selected-fandom'}>
           <div className="fandoms">
             <h2 className="fandoms-header">Fandoms</h2>
-            <AddFandomForm addFandom={this.addFandom} />
+            <AddFandomForm addFandom={this.addFandom} isManaging={isManaging} />
             <FandomList
               fandoms={this.state.fandoms}
               selectFandom={this.selectFandom}
               updateFandom={this.updateFandom}
               deleteFandom={this.deleteFandom}
               selectedFandomKey={this.state.selectedFandomKey}
+              isManaging={isManaging}
             />
           </div>
           <Subjects
@@ -184,6 +185,7 @@ class App extends Component {
             addSubject={this.addSubject}
             updateSubject={this.updateSubject}
             deleteSubject={this.deleteSubject}
+            isManaging={isManaging}
           />
           <div className="descriptors">
             <h2 className="descriptors-header">Descriptors</h2>
