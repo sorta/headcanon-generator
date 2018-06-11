@@ -8,7 +8,7 @@ import Login from './Login';
 class Router extends Component {
   state = {
     uid: null,
-    owner: null
+    oid: null
   };
 
   componentDidMount() {
@@ -20,13 +20,13 @@ class Router extends Component {
   }
 
   authHandler = async (authData, skipPush=false) => {
-    const existingOwner = await base.fetch('owner', { context: this });
+    const existingOwner = await base.fetch('oid', { context: this });
     if (!existingOwner || Object.keys(existingOwner).length === 0) {
-      await base.post('owner', { data: authData.user.uid });
+      await base.post('oid', { data: authData.user.uid });
     }
 
     const newOwner = existingOwner || authData.user.uid;
-    this.setState({ uid: authData.user.uid, owner: newOwner });
+    this.setState({ uid: authData.user.uid, oid: newOwner });
   };
 
   authenticate = (provider) => {
@@ -40,13 +40,13 @@ class Router extends Component {
   }
 
   render() {
-    const ownerLoggedIn = this.state.uid === this.state.owner;
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path="/" render={(props) => (
               <App {...props}
-                ownerLoggedIn={ownerLoggedIn}
+                uid={this.state.uid}
+                oid={this.state.oid}
               />
             )}
           />

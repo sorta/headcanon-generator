@@ -6,12 +6,14 @@ class Descriptor extends Component {
     descriptor: PropTypes.shape({ name: PropTypes.string }),
     updateDescriptor: PropTypes.func,
     deleteDescriptor: PropTypes.func,
+    isManaging: PropTypes.func,
     index: PropTypes.string,
   };
   static defaultProps = {
     descriptor: { name: '' },
     updateDescriptor: () => {},
     deleteDescriptor: () => {},
+    isManaging: () => false,
     index: '',
   };
 
@@ -25,14 +27,21 @@ class Descriptor extends Component {
   };
 
   render() {
+    if (!this.props.isManaging()) {
+      return (
+        <li key={this.props.index} className="DescriptorListItem list-item control-row">
+          <span className="DescriptorList-item-text">
+            {this.props.descriptor.name}
+          </span>
+        </li>
+      );
+    }
+
     return (
       <li key={this.props.index} className="DescriptorListItem list-item control-row">
         <input name="name" type="text" placeholder="Descriptor Name"
           value={this.props.descriptor.name} onChange={this.handleChange}
         />
-        {/* <span className="DescriptorList-item-text">
-          {this.props.descriptor.name}
-        </span> */}
         <button
           className="DescriptorListItem-delete"
           onClick={() => this.props.deleteDescriptor(this.props.index)}

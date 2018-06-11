@@ -8,11 +8,13 @@ class DescriptorList extends Component {
     descriptors: PropTypes.object,
     updateDescriptor: PropTypes.func,
     deleteDescriptor: PropTypes.func,
+    isManaging: PropTypes.func,
   };
   static defaultProps = {
     descriptors: {},
     updateDescriptor: () => {},
     deleteDescriptor: () => {},
+    isManaging: () => false,
   };
 
   render() {

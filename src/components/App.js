@@ -161,6 +161,7 @@ class App extends Component {
   render() {
     const selectedFandom = this.state.fandoms[this.state.selectedFandomKey];
     const options3 = typeof selectedFandom === 'undefined' || typeof selectedFandom.name === 'undefined';
+    const isManaging = () => { return this.props.uid !== null && this.props.uid === this.props.oid };
 
     return (
       <div className="App App-main">
@@ -186,11 +187,12 @@ class App extends Component {
           />
           <div className="descriptors">
             <h2 className="descriptors-header">Descriptors</h2>
-            <AddDescriptorForm addDescriptor={this.addDescriptor} />
+            <AddDescriptorForm addDescriptor={this.addDescriptor} isManaging={isManaging} />
             <DescriptorList
               descriptors={this.state.descriptors}
               updateDescriptor={this.updateDescriptor}
               deleteDescriptor={this.deleteDescriptor}
+              isManaging={isManaging}
             />
           </div>
         </div>
