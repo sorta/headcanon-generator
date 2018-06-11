@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import slugify from 'slugify';
 
 import base from '../base';
@@ -156,8 +155,6 @@ class App extends Component {
     generated.subject = arrand(availableSubjects);
     generated.descriptor = arrand(availableDescriptors);
 
-    console.log(generated, this.state.subjects[generated.subject], this.state.descriptors[generated.descriptor]);
-
     this.setState({ generated });
   }
 
@@ -166,8 +163,7 @@ class App extends Component {
     const options3 = typeof selectedFandom === 'undefined' || typeof selectedFandom.name === 'undefined';
 
     return (
-      <div className="App">
-      {/*<Logo />*/}
+      <div className="App App-main">
         <div className={options3 ? 'options' : 'options has-selected-fandom'}>
           <div className="fandoms">
             <h2 className="fandoms-header">Fandoms</h2>
@@ -200,9 +196,6 @@ class App extends Component {
         </div>
         <div className="action">
           <button className="btn btn-go" title="Generate Headcanon" onClick={this.generateHeadcanon}>
-            {/*<svg className="btn-go-logo" role="img">
-              <use xlinkHref={`#logo`} />
-            </svg>*/}
             <Logo className="btn-go-logo" />
           </button>
         </div>
