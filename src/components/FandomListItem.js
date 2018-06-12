@@ -10,6 +10,8 @@ class FandomList extends Component {
     isManaging: PropTypes.func,
     selectedFandomKey: PropTypes.string,
     index: PropTypes.string,
+    setAvailability: PropTypes.func,
+    fandomAvailability: PropTypes.object,
   };
   static defaultProps = {
     fandom: { name: '' },
@@ -19,6 +21,8 @@ class FandomList extends Component {
     isManaging: () => false,
     selectedFandomKey: '',
     index: '',
+    setAvailability: () => {},
+    fandomAvailability: {},
   };
 
   handleChange = (event) => {
@@ -30,34 +34,55 @@ class FandomList extends Component {
     this.props.updateFandom(this.props.index, updatedFandom);
   };
 
+  toggleAvailability = (event) => {
+    this.props.setAvailability('fandom', this.props.index, event.currentTarget.checked);
+  };
+
   render() {
     const isSelected = this.props.index === this.props.selectedFandomKey;
-    let itemContent = (
-      <div className="control-row">
-        <span className="control-stretch">{this.props.fandom.name}</span>
-        <button onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
-          {isSelected ? '<<' : '>>'}
-        </button>
-      </div>
-    );
 
-    if (this.props.isManaging()) {
-      itemContent = (
-        <div className="control-row">
-          <input name="name" type="text" placeholder="Fandom Name" className="control-stretch"
-            value={this.props.fandom.name} onChange={this.handleChange}
+    if (!this.props.isManaging()) {
+      return (
+        <li key={this.props.index} className="FandomListItem list-item control-row">
+          <input
+            id={`isAvailable_fand_${this.props.index}`}
+            name="isAvailable"
+            type="checkbox"
+            className="cb-fake"
+            checked={!({}.hasOwnProperty.call(this.props.fandomAvailability, this.props.index))}
+            onChange={this.toggleAvailability}
           />
-          <button onClick={() => this.props.deleteFandom(this.props.index)}>-</button>
+          <label
+            htmlFor={`isAvailable_fand_${this.props.index}`}
+            className="FandomListItem-text control-stretch"
+          >
+            {this.props.fandom.name}
+          </label>
           <button onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
             {isSelected ? '<<' : '>>'}
           </button>
-        </div>
+        </li>
       );
     }
 
     return (
-      <li key={this.props.index} className="FandomListItem list-item">
-        {itemContent}
+      <li key={this.props.index} className="FandomListItem list-item control-row">
+        <input
+          id={`isAvailable_fand_${this.props.index}`}
+          name="isAvailable"
+          type="checkbox"
+          className="cb-fake"
+          checked={!({}.hasOwnProperty.call(this.props.fandomAvailability, this.props.index))}
+          onChange={this.toggleAvailability}
+        />
+        <label htmlFor={`isAvailable_fand_${this.props.index}`}></label>
+        <input name="name" type="text" placeholder="Fandom Name" className="control-stretch"
+          value={this.props.fandom.name} onChange={this.handleChange}
+        />
+        <button onClick={() => this.props.deleteFandom(this.props.index)}>-</button>
+        <button onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
+          {isSelected ? '<<' : '>>'}
+        </button>
       </li>
     );
   }

@@ -3,20 +3,25 @@ import PropTypes from 'prop-types';
 
 class SubjectList extends Component {
   static propTypes = {
-    subject: PropTypes.shape({ name: PropTypes.string }),
+    subject: PropTypes.shape({
+      name: PropTypes.string,
+      fandomKey: PropTypes.string,
+    }),
     updateSubject: PropTypes.func,
     deleteSubject: PropTypes.func,
     index: PropTypes.string,
     setAvailability: PropTypes.func,
     subjectAvailability: PropTypes.object,
+    fandomAvailability: PropTypes.object,
   };
   static defaultProps = {
-    subject: { name: '' },
+    subject: { name: '', fandomKey: '' },
     updateSubject: () => {},
     deleteSubject: () => {},
     index: '',
     setAvailability: () => {},
     subjectAvailability: {},
+    fandomAvailability: {},
   };
 
   handleChange = (event) => {
@@ -33,22 +38,27 @@ class SubjectList extends Component {
   };
 
   render() {
+    let availCheckbox = null;
+    if (!({}.hasOwnProperty.call(this.props.fandomAvailability, this.props.subject.fandomKey))) {
+      availCheckbox = (
+        <input
+          id={`isAvailable_subj_${this.props.index}`}
+          name="isAvailable"
+          type="checkbox"
+          className="cb-fake"
+          checked={!({}.hasOwnProperty.call(this.props.subjectAvailability, this.props.index))}
+          onChange={this.toggleAvailability}
+        />
+      );
+    }
+
     if (!this.props.isManaging()) {
       return (
         <li key={this.props.index} className="SubjectListItem list-item control-row">
-          {/*<span className="SubjectList-item-text">{this.props.subject.name}</span>*/}
-
-          <input
-            id={`isAvailable_subj_${this.props.index}`}
-            name="isAvailable"
-            type="checkbox"
-            className="cb-fake"
-            checked={!({}.hasOwnProperty.call(this.props.subjectAvailability, this.props.index))}
-            onChange={this.toggleAvailability}
-          />
+          {availCheckbox}
           <label
             htmlFor={`isAvailable_subj_${this.props.index}`}
-            className="SubjectList-item-text"
+            className={availCheckbox === null ? "SubjectList-item-text strike" : "SubjectList-item-text"}
           >
             {this.props.subject.name}
           </label>
@@ -58,14 +68,7 @@ class SubjectList extends Component {
 
     return (
       <li key={this.props.index} className="SubjectListItem list-item control-row">
-        <input
-          id={`isAvailable_subj_${this.props.index}`}
-          name="isAvailable"
-          type="checkbox"
-          className="cb-fake"
-          checked={!({}.hasOwnProperty.call(this.props.subjectAvailability, this.props.index))}
-          onChange={this.toggleAvailability}
-        />
+        {availCheckbox}
         <label htmlFor={`isAvailable_subj_${this.props.index}`}></label>
         <input name="name" type="text" placeholder="Subject Name" className="control-stretch"
           value={this.props.subject.name} onChange={this.handleChange}

@@ -40,6 +40,8 @@ class App extends Component {
     if (descAvRef) { this.setState({ descriptorAvailability: JSON.parse(descAvRef) }); }
     const subjAvRef = localStorage.getItem('subjectAvailability');
     if (subjAvRef) { this.setState({ subjectAvailability: JSON.parse(subjAvRef) }); }
+    const fandAvRef = localStorage.getItem('fandomAvailability');
+    if (fandAvRef) { this.setState({ fandomAvailability: JSON.parse(fandAvRef) }); }
 
     this.fandom_ref = base.syncState('fandoms', {
       context: this,
@@ -61,6 +63,7 @@ class App extends Component {
     localStorage.setItem('optionsOpen', JSON.stringify(this.state.optionsOpen));
     localStorage.setItem('descriptorAvailability', JSON.stringify(this.state.descriptorAvailability));
     localStorage.setItem('subjectAvailability', JSON.stringify(this.state.subjectAvailability));
+    localStorage.setItem('fandomAvailability', JSON.stringify(this.state.fandomAvailability));
   }
 
   componentWillUnmount() {
@@ -231,6 +234,8 @@ class App extends Component {
               deleteFandom={this.deleteFandom}
               selectedFandomKey={this.state.selectedFandomKey}
               isManaging={isManaging}
+              setAvailability={this.setAvailability}
+              fandomAvailability={this.state.fandomAvailability}
             />
           </div>
           <Subjects
@@ -243,6 +248,7 @@ class App extends Component {
             isManaging={isManaging}
             setAvailability={this.setAvailability}
             subjectAvailability={this.state.subjectAvailability}
+            fandomAvailability={this.state.fandomAvailability}
           />
           <div className="descriptors">
             <h2 className="descriptors-header">Descriptors</h2>

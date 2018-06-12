@@ -11,6 +11,8 @@ class FandomList extends Component {
     deleteFandom: PropTypes.func,
     isManaging: PropTypes.func,
     selectedFandomKey: PropTypes.string,
+    setAvailability: PropTypes.func,
+    fandomAvailability: PropTypes.object,
   };
   static defaultProps = {
     fandoms: {},
@@ -19,6 +21,8 @@ class FandomList extends Component {
     deleteFandom: () => {},
     isManaging: () => false,
     selectedFandomKey: '',
+    setAvailability: () => {},
+    fandomAvailability: {},
   };
 
   render() {
@@ -42,6 +46,8 @@ class FandomList extends Component {
             deleteFandom={this.props.deleteFandom}
             isManaging={this.props.isManaging}
             selectedFandomKey={this.props.selectedFandomKey}
+            setAvailability={this.props.setAvailability}
+            fandomAvailability={this.props.fandomAvailability}
           />
         })}
       </ul>

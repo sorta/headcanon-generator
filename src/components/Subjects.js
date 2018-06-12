@@ -14,6 +14,7 @@ class Subjects extends Component {
     isManaging: PropTypes.func,
     setAvailability: PropTypes.func,
     subjectAvailability: PropTypes.object,
+    fandomAvailability: PropTypes.object,
   };
   static defaultProps = {
     fandom: {},
@@ -24,6 +25,7 @@ class Subjects extends Component {
     isManaging: () => false,
     setAvailability: () => {},
     subjectAvailability: {},
+    fandomAvailability: {},
   };
 
   render() {
@@ -51,6 +53,7 @@ class Subjects extends Component {
           isManaging={this.props.isManaging}
           setAvailability={this.props.setAvailability}
           subjectAvailability={this.props.subjectAvailability}
+          fandomAvailability={this.props.fandomAvailability}
         />
       </div>
     );
