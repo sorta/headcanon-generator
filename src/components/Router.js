@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import base, { firebaseApp, firebase } from '../base';
-import NotFound from './NotFound';
+// import NotFound from './NotFound';
 import App from './App';
 import Login from './Login';
 
@@ -44,21 +44,19 @@ class Router extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" render={(props) => (
-              <App {...props}
-                uid={this.state.uid}
-                oid={this.state.oid}
-              />
-            )}
-          />
+            <App {...props}
+              uid={this.state.uid}
+              oid={this.state.oid}
+            />
+          )}/>
           <Route path="/login/" render={(props) => (
-              <Login {...props}
-                uid={this.state.uid}
-                authenticate={this.authenticate}
-                logout={this.logout}
-              />
-            )}
-          />
-          <Route component={NotFound} />
+            <Login {...props}
+              uid={this.state.uid}
+              authenticate={this.authenticate}
+              logout={this.logout}
+            />
+          )}/>
+          <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     );
