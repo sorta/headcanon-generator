@@ -74,6 +74,13 @@ button,
   display: grid;
   grid-gap: var(--gap);
   grid-template-areas: "fandoms" "descriptors";
+  max-height: 0;
+  transition: max-height 0.25s;
+  overflow: hidden;
+
+  &.is-open {
+    max-height: 100vh;
+  }
 
   &.has-selected-fandom {
     grid-template-areas: "fandoms" "subjects" "descriptors";
@@ -195,6 +202,15 @@ button,
 .btn-logout {
   border-radius: var(--gap-half);
   padding: var(--gap-half);
+}
+
+.btn-options {
+  border: none;
+  border-bottom: 1px solid var(--black);
+  border-radius: 0;
+  background: var(--white);
+  color: var(--black);
+  justify-self: center;
 }
 
 .logo-dark-fill,

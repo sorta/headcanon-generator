@@ -21,6 +21,7 @@ class App extends Component {
     subjects: {},
     descriptors: {},
     selectedFandomKey: '',
+    optionsOpen: false,
     unavailable: {},
     generated: {}
   };
@@ -32,6 +33,9 @@ class App extends Component {
 
     const genRef = localStorage.getItem('generated');
     if (genRef) { this.setState({ generated: JSON.parse(genRef) }); }
+
+    const optsOpen = localStorage.getItem('optionsOpen');
+    if (optsOpen) { this.setState({ optionsOpen: JSON.parse(optsOpen) }); }
 
     this.fandom_ref = base.syncState('fandoms', {
       context: this,
@@ -50,6 +54,7 @@ class App extends Component {
   componentDidUpdate() {
     localStorage.setItem('selectedFandomKey', this.state.selectedFandomKey);
     localStorage.setItem('generated', JSON.stringify(this.state.generated));
+    localStorage.setItem('optionsOpen', JSON.stringify(this.state.optionsOpen));
   }
 
   componentWillUnmount() {
@@ -158,14 +163,30 @@ class App extends Component {
     this.setState({ generated });
   }
 
+  // Options functions
+  toggleOptions = () => {
+    this.setState({ optionsOpen: !this.state.optionsOpen });
+  }
+
   render() {
     const selectedFandom = this.state.fandoms[this.state.selectedFandomKey];
-    const options3 = typeof selectedFandom === 'undefined' || typeof selectedFandom.name === 'undefined';
+    const options2 = typeof selectedFandom === 'undefined' || typeof selectedFandom.name === 'undefined';
     const isManaging = () => { return this.props.uid !== null && this.props.uid === this.props.oid };
+
+    const optionsClasses = ['options'];
+    if (!options2) {
+      optionsClasses.push('has-selected-fandom')
+    }
+    if (this.state.optionsOpen === true) {
+      optionsClasses.push('is-open');
+    }
 
     return (
       <div className="App App-main">
-        <div className={options3 ? 'options' : 'options has-selected-fandom'}>
+        <button className="btn btn-options" onClick={this.toggleOptions}>
+          {this.state.optionsOpen ? 'vvv' : '^^^'}
+        </button>
+        <div className={optionsClasses.join(' ')}>
           <div className="fandoms">
             <h2 className="fandoms-header">Fandoms</h2>
             <AddFandomForm addFandom={this.addFandom} isManaging={isManaging} />
