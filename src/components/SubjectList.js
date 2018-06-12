@@ -10,6 +10,8 @@ class SubjectList extends Component {
     updateSubject: PropTypes.func,
     deleteSubject: PropTypes.func,
     isManaging: PropTypes.func,
+    setAvailability: PropTypes.func,
+    subjectAvailability: PropTypes.object,
   };
   static defaultProps = {
     subjects: {},
@@ -17,6 +19,8 @@ class SubjectList extends Component {
     updateSubject: () => {},
     deleteSubject: () => {},
     isManaging: () => false,
+    setAvailability: () => {},
+    subjectAvailability: {},
   };
 
   render() {
@@ -36,6 +40,8 @@ class SubjectList extends Component {
                 updateSubject={this.props.updateSubject}
                 deleteSubject={this.props.deleteSubject}
                 isManaging={this.props.isManaging}
+                setAvailability={this.props.setAvailability}
+                subjectAvailability={this.props.subjectAvailability}
               />
             );
           } else {

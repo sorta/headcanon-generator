@@ -52,6 +52,35 @@ button,
   }
 }
 
+input[type="checkbox"].cb-fake {
+  display: none;
+
+  & + label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      color: var(--black);
+      background: var(--white);
+      margin-right: var(--gap-half);
+      width: var(--gap);
+      height: var(--gap);
+      font-size: 1.3rem;
+    }
+  }
+
+  &:checked + label:before {
+    content: '\2713';
+  }
+}
+
 /* Layout */
 
 #root {
@@ -151,6 +180,7 @@ button,
 
 .control-row {
   display: flex;
+  align-items: center;
 
   & .control-stretch {
     flex: 1;

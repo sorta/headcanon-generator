@@ -34,9 +34,7 @@ class Descriptor extends Component {
     this.props.updateDescriptor(this.props.index, updatedDescriptor);
   };
 
-  // setAvailability = (typeKey, itemKey, value)
   toggleAvailability = (event) => {
-    // console.log(event);
     this.props.setAvailability('descriptor', this.props.index, event.currentTarget.checked);
   };
 
@@ -44,9 +42,20 @@ class Descriptor extends Component {
     if (!this.props.isManaging()) {
       return (
         <li key={this.props.index} className="DescriptorListItem list-item control-row">
-          <span className="DescriptorList-item-text">
+          <input
+            id={`isAvailable_desc_${this.props.index}`}
+            name="isAvailable"
+            type="checkbox"
+            className="cb-fake"
+            checked={!({}.hasOwnProperty.call(this.props.descriptorAvailability, this.props.index))}
+            onChange={this.toggleAvailability}
+          />
+          <label
+            htmlFor={`isAvailable_desc_${this.props.index}`}
+            className="DescriptorList-item-text"
+          >
             {this.props.descriptor.name}
-          </span>
+          </label>
         </li>
       );
     }
@@ -54,11 +63,14 @@ class Descriptor extends Component {
     return (
       <li key={this.props.index} className="DescriptorListItem list-item control-row">
         <input
+          id={`isAvailable_desc_${this.props.index}`}
           name="isAvailable"
           type="checkbox"
+          className="cb-fake"
           checked={!({}.hasOwnProperty.call(this.props.descriptorAvailability, this.props.index))}
           onChange={this.toggleAvailability}
         />
+        <label htmlFor={`isAvailable_desc_${this.props.index}`}></label>
         <input
           name="name"
           type="text"

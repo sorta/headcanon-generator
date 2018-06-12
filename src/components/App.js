@@ -24,6 +24,7 @@ class App extends Component {
     optionsOpen: false,
     descriptorAvailability: {},
     subjectAvailability: {},
+    fandomAvailability: {},
     generated: {}
   };
 
@@ -37,6 +38,8 @@ class App extends Component {
     if (optsOpen) { this.setState({ optionsOpen: JSON.parse(optsOpen) }); }
     const descAvRef = localStorage.getItem('descriptorAvailability');
     if (descAvRef) { this.setState({ descriptorAvailability: JSON.parse(descAvRef) }); }
+    const subjAvRef = localStorage.getItem('subjectAvailability');
+    if (subjAvRef) { this.setState({ subjectAvailability: JSON.parse(subjAvRef) }); }
 
     this.fandom_ref = base.syncState('fandoms', {
       context: this,
@@ -57,6 +60,7 @@ class App extends Component {
     localStorage.setItem('generated', JSON.stringify(this.state.generated));
     localStorage.setItem('optionsOpen', JSON.stringify(this.state.optionsOpen));
     localStorage.setItem('descriptorAvailability', JSON.stringify(this.state.descriptorAvailability));
+    localStorage.setItem('subjectAvailability', JSON.stringify(this.state.subjectAvailability));
   }
 
   componentWillUnmount() {
@@ -172,7 +176,15 @@ class App extends Component {
 
   // Headcanon functions
   generateHeadcanon = () => {
-    const availableSubjects = Object.keys(this.state.subjects);
+    const availableSubjects = Object.keys(this.state.subjects).filter((el, i, arr) => {
+      const subj = this.state.subjects[el];
+      // const fandom = this.state.fandoms[subj.fandomKey];
+      return (
+        !{}.hasOwnProperty.call(this.state.subjectAvailability, el)
+        &&
+        !{}.hasOwnProperty.call(this.state.fandomAvailability, subj.fandomKey)
+      );
+    });
     const availableDescriptors = Object.keys(this.state.descriptors).filter((el, i, arr) => {
       return !{}.hasOwnProperty.call(this.state.descriptorAvailability, el);
     });
@@ -229,6 +241,8 @@ class App extends Component {
             updateSubject={this.updateSubject}
             deleteSubject={this.deleteSubject}
             isManaging={isManaging}
+            setAvailability={this.setAvailability}
+            subjectAvailability={this.state.subjectAvailability}
           />
           <div className="descriptors">
             <h2 className="descriptors-header">Descriptors</h2>
