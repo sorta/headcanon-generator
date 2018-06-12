@@ -18,6 +18,7 @@ class AddDescriptorForm extends Component {
     ev.preventDefault();
     const descriptor = {
       name: this.nameRef.current.value,
+      isAvailable: true,
     };
     this.props.addDescriptor(descriptor);
     ev.currentTarget.reset();

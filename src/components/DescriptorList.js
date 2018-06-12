@@ -6,14 +6,18 @@ import DescriptorListItem from './DescriptorListItem'
 class DescriptorList extends Component {
   static propTypes = {
     descriptors: PropTypes.object,
+    descriptorAvailability: PropTypes.object,
     updateDescriptor: PropTypes.func,
     deleteDescriptor: PropTypes.func,
+    setAvailability: PropTypes.func,
     isManaging: PropTypes.func,
   };
   static defaultProps = {
     descriptors: {},
+    descriptorAvailability: {},
     updateDescriptor: () => {},
     deleteDescriptor: () => {},
+    setAvailability: () => {},
     isManaging: () => false,
   };
 
@@ -27,6 +31,8 @@ class DescriptorList extends Component {
             descriptor={this.props.descriptors[key]}
             updateDescriptor={this.props.updateDescriptor}
             deleteDescriptor={this.props.deleteDescriptor}
+            setAvailability={this.props.setAvailability}
+            descriptorAvailability={this.props.descriptorAvailability}
             isManaging={this.props.isManaging}
           />
         ))}

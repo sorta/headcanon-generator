@@ -22,7 +22,8 @@ class App extends Component {
     descriptors: {},
     selectedFandomKey: '',
     optionsOpen: false,
-    unavailable: {},
+    descriptorAvailability: {},
+    subjectAvailability: {},
     generated: {}
   };
 
@@ -30,12 +31,12 @@ class App extends Component {
   componentDidMount() {
     const sfkRef = localStorage.getItem('selectedFandomKey');
     if (sfkRef) { this.setState({ selectedFandomKey: sfkRef }); }
-
     const genRef = localStorage.getItem('generated');
     if (genRef) { this.setState({ generated: JSON.parse(genRef) }); }
-
     const optsOpen = localStorage.getItem('optionsOpen');
     if (optsOpen) { this.setState({ optionsOpen: JSON.parse(optsOpen) }); }
+    const descAvRef = localStorage.getItem('descriptorAvailability');
+    if (descAvRef) { this.setState({ descriptorAvailability: JSON.parse(descAvRef) }); }
 
     this.fandom_ref = base.syncState('fandoms', {
       context: this,
@@ -55,6 +56,7 @@ class App extends Component {
     localStorage.setItem('selectedFandomKey', this.state.selectedFandomKey);
     localStorage.setItem('generated', JSON.stringify(this.state.generated));
     localStorage.setItem('optionsOpen', JSON.stringify(this.state.optionsOpen));
+    localStorage.setItem('descriptorAvailability', JSON.stringify(this.state.descriptorAvailability));
   }
 
   componentWillUnmount() {
@@ -151,15 +153,35 @@ class App extends Component {
     this.setState({ descriptors });
   }
 
+  // availability functions
+  setAvailability = (typeKey, itemKey, value) => {
+    const stateKey = `${typeKey}Availability`;
+    const availability = { ...this.state[stateKey] };
+    const stateData = {};
+
+    if (value === true) {
+      delete availability[itemKey];
+    } else {
+      availability[itemKey] = false;
+    }
+
+    stateData[stateKey] = availability;
+
+    this.setState(stateData);
+  }
+
   // Headcanon functions
   generateHeadcanon = () => {
     const availableSubjects = Object.keys(this.state.subjects);
-    const availableDescriptors = Object.keys(this.state.descriptors);
-    const generated = {};
+    const availableDescriptors = Object.keys(this.state.descriptors).filter((el, i, arr) => {
+      return !{}.hasOwnProperty.call(this.state.descriptorAvailability, el);
+    });
 
+    const generated = {};
     generated.subject = arrand(availableSubjects);
     generated.descriptor = arrand(availableDescriptors);
 
+    // console.log('Gen: ', availableDescriptors, generated);
     this.setState({ generated });
   }
 
@@ -216,6 +238,8 @@ class App extends Component {
               updateDescriptor={this.updateDescriptor}
               deleteDescriptor={this.deleteDescriptor}
               isManaging={isManaging}
+              setAvailability={this.setAvailability}
+              descriptorAvailability={this.state.descriptorAvailability}
             />
           </div>
         </div>
