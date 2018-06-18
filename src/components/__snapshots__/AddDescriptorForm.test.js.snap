@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddDescriptorForm in managing mode renders and matches our snapshot 1`] = `
+<form
+  className="AddDescriptorForm form-add control-row"
+  onSubmit={[Function]}
+>
+  <input
+    className="control-stretch"
+    name="name"
+    placeholder="New Descriptor Name"
+    required={true}
+    type="text"
+  />
+  <button
+    type="submit"
+  >
+    +
+  </button>
+</form>
+`;
+
+exports[`AddDescriptorForm renders and matches our snapshot 1`] = `
+<form
+  className="AddDescriptorForm form-add control-row"
+  onSubmit={[Function]}
+>
+  <input
+    className="control-stretch"
+    name="name"
+    placeholder="New Descriptor Name"
+    required={true}
+    type="text"
+  />
+  <button
+    type="submit"
+  >
+    +
+  </button>
+</form>
+`;
