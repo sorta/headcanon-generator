@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { allowEdit } from '../utils'
 
 class AddFandomForm extends Component {
   static propTypes = {
@@ -24,7 +25,7 @@ class AddFandomForm extends Component {
   }
 
   render() {
-    if (!this.props.isManaging()) {
+    if (!this.props.isManaging() || !allowEdit) {
       return null;
     }
 

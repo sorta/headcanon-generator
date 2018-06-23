@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import base, { firebaseApp, firebase } from '../base';
+import { allowEdit } from '../utils';
+
 // import NotFound from './NotFound';
 import App from './App';
 import Login from './Login';
@@ -40,6 +42,18 @@ class Router extends Component {
   }
 
   render() {
+    let loginRoute = null;
+    if (allowEdit) {
+      loginRoute = (
+        <Route path="/login/" render={(props) => (
+          <Login {...props}
+            uid={this.state.uid}
+            authenticate={this.authenticate}
+            logout={this.logout}
+          />
+        )}/>
+      );
+    }
     return (
       <BrowserRouter>
         <Switch>
@@ -49,13 +63,7 @@ class Router extends Component {
               oid={this.state.oid}
             />
           )}/>
-          <Route path="/login/" render={(props) => (
-            <Login {...props}
-              uid={this.state.uid}
-              authenticate={this.authenticate}
-              logout={this.logout}
-            />
-          )}/>
+          { loginRoute }
           <Redirect to="/" />
         </Switch>
       </BrowserRouter>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { allowEdit } from '../utils'
 
 class Descriptor extends Component {
   static propTypes = {
@@ -39,7 +40,7 @@ class Descriptor extends Component {
   };
 
   render() {
-    if (!this.props.isManaging()) {
+    if (!this.props.isManaging() || !allowEdit) {
       return (
         <li key={this.props.index} className="DescriptorListItem list-item control-row">
           <input

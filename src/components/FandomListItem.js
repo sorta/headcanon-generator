@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { allowEdit } from '../utils'
 
 class FandomList extends Component {
   static propTypes = {
@@ -41,7 +42,7 @@ class FandomList extends Component {
   render() {
     const isSelected = this.props.index === this.props.selectedFandomKey;
 
-    if (!this.props.isManaging()) {
+    if (!this.props.isManaging() || !allowEdit) {
       return (
         <li key={this.props.index} className="FandomListItem list-item control-row">
           <input

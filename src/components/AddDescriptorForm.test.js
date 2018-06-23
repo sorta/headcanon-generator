@@ -30,7 +30,6 @@ describe("AddDescriptorForm", () => {
 // Tests for managing mode
 props.isManaging = () => true;
 describe("AddDescriptorForm in managing mode", () => {
-  // const component = shallow(<AddDescriptorForm addDescriptor={props.addDescriptor} isManaging={props.isManaging} />);
 
   it('renders and matches our snapshot', () => {
     const snapshot = renderer.create(

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { allowEdit } from '../utils'
 
 class AddDescriptorForm extends Component {
   static propTypes = {
@@ -25,7 +26,7 @@ class AddDescriptorForm extends Component {
   }
 
   render() {
-    if (!this.props.isManaging()) {
+    if (!this.props.isManaging() || !allowEdit) {
       return null;
     }
 

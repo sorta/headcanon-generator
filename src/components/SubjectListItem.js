@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { allowEdit } from '../utils'
 
 class SubjectList extends Component {
   static propTypes = {
@@ -52,7 +53,7 @@ class SubjectList extends Component {
       );
     }
 
-    if (!this.props.isManaging()) {
+    if (!this.props.isManaging() || !allowEdit) {
       return (
         <li key={this.props.index} className="SubjectListItem list-item control-row">
           {availCheckbox}

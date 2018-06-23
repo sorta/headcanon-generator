@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { allowEdit } from '../utils'
 
 class AddSubjectForm extends Component {
   static propTypes = {
@@ -26,7 +27,7 @@ class AddSubjectForm extends Component {
   }
 
   render() {
-    if (!this.props.isManaging()) {
+    if (!this.props.isManaging() || !allowEdit) {
       return null;
     }
 
