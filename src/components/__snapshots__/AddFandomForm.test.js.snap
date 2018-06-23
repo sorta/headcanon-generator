@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddFandomForm in managing mode renders and matches our snapshot 1`] = `
+<form
+  className="AddFandomForm form-add control-row"
+  onSubmit={[Function]}
+>
+  <input
+    className="control-stretch"
+    name="name"
+    placeholder="New Fandom Name"
+    required={true}
+    type="text"
+  />
+  <button
+    type="submit"
+  >
+    +
+  </button>
+</form>
+`;
+
+exports[`AddFandomForm renders and matches our snapshot 1`] = `
+<form
+  className="AddFandomForm form-add control-row"
+  onSubmit={[Function]}
+>
+  <input
+    className="control-stretch"
+    name="name"
+    placeholder="New Fandom Name"
+    required={true}
+    type="text"
+  />
+  <button
+    type="submit"
+  >
+    +
+  </button>
+</form>
+`;
