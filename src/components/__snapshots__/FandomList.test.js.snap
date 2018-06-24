@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FandomList renders and matches our snapshot 1`] = `
+<ul
+  className="options-list FandomList"
+>
+  <li
+    className="FandomListItem list-item control-row"
+  >
+    <input
+      checked={true}
+      className="cb-fake"
+      id="isAvailable_fand_f_test_1"
+      name="isAvailable"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      className="FandomListItem-text control-stretch"
+      htmlFor="isAvailable_fand_f_test_1"
+    >
+      Test 1
+    </label>
+    <button
+      onClick={[Function]}
+    >
+      &gt;&gt;
+    </button>
+  </li>
+  <li
+    className="FandomListItem list-item control-row"
+  >
+    <input
+      checked={true}
+      className="cb-fake"
+      id="isAvailable_fand_f_test_2"
+      name="isAvailable"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      className="FandomListItem-text control-stretch"
+      htmlFor="isAvailable_fand_f_test_2"
+    >
+      Test 2
+    </label>
+    <button
+      onClick={[Function]}
+    >
+      &gt;&gt;
+    </button>
+  </li>
+  <li
+    className="FandomListItem list-item control-row"
+  >
+    <input
+      checked={true}
+      className="cb-fake"
+      id="isAvailable_fand_f_test_3"
+      name="isAvailable"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      className="FandomListItem-text control-stretch"
+      htmlFor="isAvailable_fand_f_test_3"
+    >
+      Test 3
+    </label>
+    <button
+      onClick={[Function]}
+    >
+      &gt;&gt;
+    </button>
+  </li>
+</ul>
+`;

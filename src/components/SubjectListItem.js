@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { allowEdit } from '../utils'
 
-class SubjectList extends Component {
+class SubjectListItem extends Component {
   static propTypes = {
     subject: PropTypes.shape({
       name: PropTypes.string,
@@ -83,4 +83,4 @@ class SubjectList extends Component {
   }
 }
 
-export default SubjectList;
+export default SubjectListItem;

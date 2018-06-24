@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { allowEdit } from '../utils'
 
-class FandomList extends Component {
+class FandomListItem extends Component {
   static propTypes = {
     fandom: PropTypes.shape({ name: PropTypes.string }),
     selectFandom: PropTypes.func,
@@ -89,4 +89,4 @@ class FandomList extends Component {
   }
 }
 
-export default FandomList;
+export default FandomListItem;

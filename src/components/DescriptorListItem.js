@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { allowEdit } from '../utils'
 
-class Descriptor extends Component {
+class DescriptorListItem extends Component {
   static propTypes = {
     descriptor: PropTypes.shape({
       name: PropTypes.string,
@@ -89,4 +89,4 @@ class Descriptor extends Component {
   }
 }
 
-export default Descriptor;
+export default DescriptorListItem;

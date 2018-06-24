@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubjectList renders and matches our snapshot 1`] = `
+<ul
+  className="options-list SubjectList"
+>
+  <li
+    className="SubjectListItem list-item control-row"
+  >
+    <input
+      checked={true}
+      className="cb-fake"
+      id="isAvailable_subj_s_test_1"
+      name="isAvailable"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      className="SubjectList-item-text"
+      htmlFor="isAvailable_subj_s_test_1"
+    >
+      Test 1
+    </label>
+  </li>
+  <li
+    className="SubjectListItem list-item control-row"
+  >
+    <input
+      checked={true}
+      className="cb-fake"
+      id="isAvailable_subj_s_test_2"
+      name="isAvailable"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      className="SubjectList-item-text"
+      htmlFor="isAvailable_subj_s_test_2"
+    >
+      Test 2
+    </label>
+  </li>
+  <li
+    className="SubjectListItem list-item control-row"
+  >
+    <input
+      checked={true}
+      className="cb-fake"
+      id="isAvailable_subj_s_test_3"
+      name="isAvailable"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      className="SubjectList-item-text"
+      htmlFor="isAvailable_subj_s_test_3"
+    >
+      Test 3
+    </label>
+  </li>
+</ul>
+`;
