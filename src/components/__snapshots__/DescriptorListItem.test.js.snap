@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DescriptorListItem renders and matches our snapshot 1`] = `
+<li
+  className="DescriptorListItem list-item control-row"
+>
+  <input
+    checked={true}
+    className="cb-fake"
+    id="isAvailable_desc_d_test_1"
+    name="isAvailable"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    className="DescriptorList-item-text"
+    htmlFor="isAvailable_desc_d_test_1"
+  >
+    Test 1
+  </label>
+</li>
+`;
