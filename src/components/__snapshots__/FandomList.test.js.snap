@@ -22,6 +22,7 @@ exports[`FandomList renders and matches our snapshot 1`] = `
       Test 1
     </label>
     <button
+      className="FandomListItem-select"
       onClick={[Function]}
     >
       &gt;&gt;
@@ -45,6 +46,7 @@ exports[`FandomList renders and matches our snapshot 1`] = `
       Test 2
     </label>
     <button
+      className="FandomListItem-select"
       onClick={[Function]}
     >
       &gt;&gt;
@@ -68,6 +70,7 @@ exports[`FandomList renders and matches our snapshot 1`] = `
       Test 3
     </label>
     <button
+      className="FandomListItem-select"
       onClick={[Function]}
     >
       &gt;&gt;

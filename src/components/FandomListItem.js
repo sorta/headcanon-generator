@@ -59,7 +59,7 @@ class FandomListItem extends Component {
           >
             {this.props.fandom.name}
           </label>
-          <button onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
+          <button className="FandomListItem-select" onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
             {isSelected ? '<<' : '>>'}
           </button>
         </li>
@@ -80,8 +80,8 @@ class FandomListItem extends Component {
         <input name="name" type="text" placeholder="Fandom Name" className="control-stretch"
           value={this.props.fandom.name} onChange={this.handleChange}
         />
-        <button onClick={() => this.props.deleteFandom(this.props.index)}>-</button>
-        <button onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
+        <button className="FandomListItem-delete" onClick={() => this.props.deleteFandom(this.props.index)}>-</button>
+        <button className="FandomListItem-select" onClick={() => this.props.selectFandom(isSelected ? '' : this.props.index)}>
           {isSelected ? '<<' : '>>'}
         </button>
       </li>

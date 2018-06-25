@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FandomListItem in managing mode renders and matches our snapshot 1`] = `
+<li
+  className="FandomListItem list-item control-row"
+>
+  <input
+    checked={true}
+    className="cb-fake"
+    id="isAvailable_fand_f_test_1"
+    name="isAvailable"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    htmlFor="isAvailable_fand_f_test_1"
+  />
+  <input
+    className="control-stretch"
+    name="name"
+    onChange={[Function]}
+    placeholder="Fandom Name"
+    type="text"
+    value="Test 1"
+  />
+  <button
+    className="FandomListItem-delete"
+    onClick={[Function]}
+  >
+    -
+  </button>
+  <button
+    className="FandomListItem-select"
+    onClick={[Function]}
+  >
+    &gt;&gt;
+  </button>
+</li>
+`;
+
+exports[`FandomListItem renders and matches our snapshot 1`] = `
+<li
+  className="FandomListItem list-item control-row"
+>
+  <input
+    checked={true}
+    className="cb-fake"
+    id="isAvailable_fand_f_test_1"
+    name="isAvailable"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    className="FandomListItem-text control-stretch"
+    htmlFor="isAvailable_fand_f_test_1"
+  >
+    Test 1
+  </label>
+  <button
+    className="FandomListItem-select"
+    onClick={[Function]}
+  >
+    &gt;&gt;
+  </button>
+</li>
+`;
