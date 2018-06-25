@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 
 class HeadCanon extends Component {
   static propTypes = {
-    subject: PropTypes.object,
-    descriptor: PropTypes.object,
+    subject: PropTypes.shape({
+      name: PropTypes.string,
+      fandomKey: PropTypes.string,
+    }),
+    descriptor: PropTypes.shape({
+      name: PropTypes.string,
+    }),
     fandoms: PropTypes.object,
   };
   static defaultProps = {

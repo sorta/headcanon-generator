@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeadCanon renders and matches our snapshot 1`] = `
+<div
+  className="HeadCanon"
+>
+  <h2
+    className="HeadCanon-item HeadCanon-Subject"
+    data-tooltip="From \\"Test Fandom 1\\""
+  >
+    Subject 1
+  </h2>
+   
+  <h2
+    className="HeadCanon-item HeadCanon-Verb"
+  >
+    is
+  </h2>
+   
+  <h2
+    className="HeadCanon-item HeadCanon-Descriptor"
+  >
+    Descriptor 1
+  </h2>
+</div>
+`;
+
+exports[`HeadCanon with no subject or descriptor renders and matches our snapshot 1`] = `null`;
