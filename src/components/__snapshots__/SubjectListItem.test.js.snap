@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubjectListItem in managing mode renders and matches our snapshot 1`] = `
+<li
+  className="SubjectListItem list-item control-row"
+>
+  <input
+    checked={true}
+    className="cb-fake"
+    id="isAvailable_subj_s_test_1"
+    name="isAvailable"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    htmlFor="isAvailable_subj_s_test_1"
+  />
+  <input
+    className="control-stretch"
+    name="name"
+    onChange={[Function]}
+    placeholder="Subject Name"
+    type="text"
+    value="Test 1"
+  />
+  <button
+    className="SubjectListItem-delete"
+    onClick={[Function]}
+  >
+    -
+  </button>
+</li>
+`;
+
+exports[`SubjectListItem renders and matches our snapshot 1`] = `
+<li
+  className="SubjectListItem list-item control-row"
+>
+  <input
+    checked={true}
+    className="cb-fake"
+    id="isAvailable_subj_s_test_1"
+    name="isAvailable"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    className="SubjectListItem-text"
+    htmlFor="isAvailable_subj_s_test_1"
+  >
+    Test 1
+  </label>
+</li>
+`;

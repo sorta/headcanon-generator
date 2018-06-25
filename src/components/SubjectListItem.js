@@ -14,6 +14,7 @@ class SubjectListItem extends Component {
     setAvailability: PropTypes.func,
     subjectAvailability: PropTypes.object,
     fandomAvailability: PropTypes.object,
+    isManaging: PropTypes.func,
   };
   static defaultProps = {
     subject: { name: '', fandomKey: '' },
@@ -23,6 +24,7 @@ class SubjectListItem extends Component {
     setAvailability: () => {},
     subjectAvailability: {},
     fandomAvailability: {},
+    isManaging: () => false,
   };
 
   handleChange = (event) => {
@@ -59,7 +61,7 @@ class SubjectListItem extends Component {
           {availCheckbox}
           <label
             htmlFor={`isAvailable_subj_${this.props.index}`}
-            className={availCheckbox === null ? "SubjectList-item-text strike" : "SubjectList-item-text"}
+            className={availCheckbox === null ? "SubjectListItem-text strike" : "SubjectListItem-text"}
           >
             {this.props.subject.name}
           </label>
@@ -75,7 +77,7 @@ class SubjectListItem extends Component {
           value={this.props.subject.name} onChange={this.handleChange}
         />
         <button
-          className="SubjectList-item-delete"
+          className="SubjectListItem-delete"
           onClick={() => this.props.deleteSubject(this.props.index)}
         >-</button>
       </li>
