@@ -51,7 +51,7 @@ describe("AddDescriptorForm in managing mode", () => {
 
   it('form submit should call addDescriptor', () => {
     const component = mount(<AddDescriptorForm { ...props } />);
-    component.find('input[name="name"]').instance().value = 'TESTING';
+    component.find('input[name="name"]').simulate('change', { target: { value: 'TESTING' } });
     component.find('button[type="submit"]').simulate('submit');
     expect(props.addDescriptor.mock.calls.length).toEqual(1);
   });

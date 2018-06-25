@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DescriptorListItem in managing mode renders and matches our snapshot 1`] = `
+<li
+  className="DescriptorListItem list-item control-row"
+>
+  <input
+    checked={true}
+    className="cb-fake"
+    id="isAvailable_desc_d_test_1"
+    name="isAvailable"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    htmlFor="isAvailable_desc_d_test_1"
+  />
+  <input
+    className="control-stretch"
+    name="name"
+    onChange={[Function]}
+    placeholder="Descriptor Name"
+    type="text"
+    value="Test 1"
+  />
+  <button
+    className="DescriptorListItem-delete"
+    onClick={[Function]}
+  >
+    -
+  </button>
+</li>
+`;
+
 exports[`DescriptorListItem renders and matches our snapshot 1`] = `
 <li
   className="DescriptorListItem list-item control-row"
