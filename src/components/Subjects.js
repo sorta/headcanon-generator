@@ -39,7 +39,7 @@ class Subjects extends Component {
 
     return (
       <div className="Subjects">
-        <h2>{currentFandom.name}</h2>
+        <h2 className="Subject-fandom-title">{currentFandom.name}</h2>
         <AddSubjectForm
           addSubject={this.props.addSubject}
           selectedFandomKey={this.props.selectedFandomKey}

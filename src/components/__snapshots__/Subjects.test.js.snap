@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subjects renders and matches our snapshot 1`] = `
+<div
+  className="Subjects"
+>
+  <h2
+    className="Subject-fandom-title"
+  >
+    Fandom 1
+  </h2>
+  <ul
+    className="options-list SubjectList"
+  />
+</div>
+`;
+
+exports[`Subjects with no fandom selected renders and matches our snapshot 1`] = `null`;
