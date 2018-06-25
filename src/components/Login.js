@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Login extends Component {
+  static propTypes = {
+    authenticate: PropTypes.func,
+    logout: PropTypes.func,
+    uid: PropTypes.string,
+  };
+  static defaultProps = {
+    authenticate: () => {},
+    logout: () => {},
+    uid: '',
+  };
+
   render() {
     let headerText = 'Login';
     let actions = (
