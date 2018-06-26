@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import slugify from 'slugify';
 
 import base from '../base';
@@ -10,12 +11,20 @@ import AddDescriptorForm from './AddDescriptorForm';
 import DescriptorList from './DescriptorList';
 import Subjects from './Subjects';
 import HeadCanon from './HeadCanon';
-
 import Logo from './Logo';
 
 const slugSetting = { lower: true, remove: /[$.#/[\]]/g };
 
 class App extends Component {
+  static propTypes = {
+    oid: PropTypes.string,
+    uid: PropTypes.string,
+  };
+  static defaultProps = {
+    oid: null,
+    uid: null,
+  };
+
   state = {
     fandoms: {},
     subjects: {},
