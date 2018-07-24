@@ -12,7 +12,13 @@
 
 # docker container run --rm -it sorta/headcanon-generator -s
 
-FROM node:9-stretch
+# docker container run \
+#   -d \
+#   --env-file ./.env.development.local \
+#   -p 5000:5000 \
+#   sorta/headcanon-generator
+
+FROM node:8.11-alpine
 
 RUN mkdir -p /opt/app
 
