@@ -1,0 +1,10 @@
+.git*
+*Dockerfile*
+*docker-compose*
+node_modules
+build
+.env*
+*.local
+.eslintrc.json
+.stylelintrc
+*.yml
