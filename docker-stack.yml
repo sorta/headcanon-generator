@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  app:
+    image: sorta/headcanon-generator
+    ports:
+      - "80:5000"
+
+    env_file:
+      - .env.production
+      - .env.production.local
+
+    environment:
+      - NODE_ENV=production
+
+    deploy:
+      replicas: 2
