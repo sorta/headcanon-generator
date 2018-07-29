@@ -3,8 +3,8 @@ version: '3.1'
 services:
   app:
     image: sorta/headcanon-generator
-    ports:
-      - "80:5000"
+    #ports:
+    #  - "5000:5000"
 
     env_file:
       - .env.production
@@ -15,3 +15,12 @@ services:
 
     deploy:
       replicas: 2
+  
+  proxy:
+    image: sorta/caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile
+      - ~/.caddy:/root/.caddy
