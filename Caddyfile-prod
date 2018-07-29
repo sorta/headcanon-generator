@@ -1,4 +1,7 @@
 localhost:80 {
+# site.com {
+    # tls email@domain.com
+
     proxy / app:5000
 
     gzip
