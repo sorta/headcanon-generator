@@ -35,5 +35,15 @@ services:
     environment:
       - NODE_ENV=development
 
+  proxy:
+    image: sorta/caddy
+    ports:
+      - "2015:2015"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile-dev:/etc/Caddyfile
+      - ./.caddy:/root/.caddy
+
 volumes:
     notused:

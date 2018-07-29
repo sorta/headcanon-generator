@@ -8,3 +8,5 @@ build
 .eslintrc.json
 .stylelintrc
 *.yml
+.caddy
+Caddyfile

@@ -67,6 +67,10 @@ typings/
 # production
 /build
 
+# caddy
+.caddy
+Caddyfile
+
 # misc
 .DS_Store
 .env.local
