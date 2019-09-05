@@ -100,6 +100,7 @@ class App extends Component {
 
     // Remote any fandom subjects
     fandoms[fKey].subjects = fandoms[fKey].subjects || [];
+    // eslint-disable-next-line
     for (const sKey of fandoms[fKey].subjects) {
       subjects[sKey] = null;
     }
