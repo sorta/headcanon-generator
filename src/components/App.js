@@ -98,7 +98,7 @@ class App extends Component {
     const fandoms = { ...this.state.fandoms };
     const subjects = { ...this.state.subjects };
 
-    // Remote any fandom subjects
+    // Remove any fandom subjects
     fandoms[fKey].subjects = fandoms[fKey].subjects || [];
     // eslint-disable-next-line
     for (const sKey of fandoms[fKey].subjects) {
