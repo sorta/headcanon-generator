@@ -1,9 +1,21 @@
 language: node_js
 node_js:
-  - "10.0"
+  - "lts"
 cache:
   directories:
     - node_modules
 script:
   - npm run build
   - npm test
+
+jobs:
+  include:
+    - os: linux
+      dist: bionic
+    - os: linux
+      dist: trusty
+    - os: windows
+    - os: osx
+      osx_image: xcode11
+    - os: osx
+      osx_image: xcode7
