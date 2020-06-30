@@ -1,6 +1,6 @@
 {
   "name": "headcanon-generator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "browserslist": [
     "defaults"
@@ -8,13 +8,13 @@
   "dependencies": {
     "ajv": "^6.10.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "firebase": "^6.5.0",
+    "firebase": "^7.15.5",
     "prop-types": "^15.7.2",
     "re-base": "^4.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.1.1",
+    "react-scripts": "3.4.1",
     "slugify": "^1.3.4"
   },
   "scripts": {
@@ -28,18 +28,18 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
-    "concurrently": "^4.1.2",
+    "concurrently": "^5.2.0",
     "cssnano": "^4.1.10",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest-enzyme": "^7.1.1",
-    "postcss-cli": "^6.1.3",
+    "postcss-cli": "^7.1.1",
     "postcss-easy-import": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "postcss-syntax": "^0.36.2",
     "react-test-renderer": "^16.9.0",
-    "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0"
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
